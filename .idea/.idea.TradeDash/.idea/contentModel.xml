@@ -16,9 +16,7 @@
         <e p="HomeController.cs" t="Include" />
       </e>
       <e p="LICENSE" t="Include" />
-      <e p="Models" t="Include">
-        <e p="ErrorViewModel.cs" t="Include" />
-      </e>
+      <e p="Models" t="Include" />
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
           <e p="netcoreapp2.1" t="Include">
@@ -37,28 +35,17 @@
         <e p="_ViewImports.cshtml" t="Include" />
         <e p="_ViewStart.cshtml" t="Include" />
         <e p="Home" t="Include">
-          <e p="About.cshtml" t="Include" />
-          <e p="Contact.cshtml" t="Include" />
           <e p="Index.cshtml" t="Include" />
-          <e p="Privacy.cshtml" t="Include" />
         </e>
         <e p="Shared" t="Include">
-          <e p="_CookieConsentPartial.cshtml" t="Include" />
           <e p="_Layout.cshtml" t="Include" />
           <e p="_ValidationScriptsPartial.cshtml" t="Include" />
-          <e p="Error.cshtml" t="Include" />
         </e>
       </e>
       <e p="wwwroot" t="Include">
         <e p="css" t="Include">
           <e p="site.css" t="Include" />
           <e p="site.min.css" t="Include" />
-        </e>
-        <e p="favicon.ico" t="Include" />
-        <e p="images" t="Include">
-          <e p="banner1.svg" t="Include" />
-          <e p="banner2.svg" t="Include" />
-          <e p="banner3.svg" t="Include" />
         </e>
         <e p="js" t="Include">
           <e p="site.js" t="Include" />
