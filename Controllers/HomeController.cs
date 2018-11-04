@@ -8,5 +8,10 @@ namespace TradeDash.Controllers
         {
             return View();
         }
+
+        public IActionResult LongTerm()
+        {
+            return View();
+        }
     }
 }
