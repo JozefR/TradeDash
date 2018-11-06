@@ -13,5 +13,10 @@ namespace TradeDash.Controllers
         {
             return View();
         }
+
+        public IActionResult ShortTerm()
+        {
+            return View();
+        }
     }
 }
