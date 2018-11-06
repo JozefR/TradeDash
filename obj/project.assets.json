@@ -11608,8 +11608,8 @@
         "netcoreapp2.1"
       ],
       "sources": {
+        "/Users/JozefR/Documents/BpWork/015-dotnetcore-tools/Base/bin/Debug/netcoreapp2.0": {},
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Users\\JozefR\\Documents\\BpWork\\015-dotnetcore-tools\\Base\\bin\\Debug\\netcoreapp2.0": {},
         "http://packages.nuget.org/v1/FeedService.svc/": {},
         "https://api.nuget.org/v3/index.json": {},
         "https://git.bluepartners.cz:4443/nuget/": {}
@@ -11635,6 +11635,7 @@
             "autoReferenced": true
           },
           "Microsoft.NETCore.App": {
+            "suppressParent": "All",
             "target": "Package",
             "version": "[2.1.0, )",
             "autoReferenced": true
