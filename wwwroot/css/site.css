@@ -7,7 +7,7 @@ for details on configuring this project to bundle and minify static web assets. 
 }
 
 body {
-    font-size: 16px;
+    font-size: .875rem;
 }
 
 .body-content {

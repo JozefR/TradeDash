@@ -18,12 +18,14 @@
 </head>
 <body>
 
-@{
-    await Html.RenderPartialAsync("_NavBar");
-}
+<div class="container-fluid">
+    <div class="row">
+        @{
+            await Html.RenderPartialAsync("_NavBar");
+        }
 
-<div class="container body-content">
-    @RenderBody()
+        @RenderBody()
+    </div>
 </div>
 
 <environment include="Development">
