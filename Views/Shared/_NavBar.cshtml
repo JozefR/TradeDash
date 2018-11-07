@@ -4,37 +4,22 @@
       <li class="nav-item">
         <a class="nav-link active" href="#">
           <span data-feather="home"></span>
-          Dashboard <span class="sr-only">(current)</span>
+          Dashboard
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
-          <span data-feather="file"></span>
-          Orders
+        <a class="nav-link" asp-controller="Home" asp-action="Index">
+          Home
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
-          <span data-feather="shopping-cart"></span>
-          Products
+        <a class="nav-link" asp-controller="Home" asp-action="ShortTerm">
+          ShortTerm
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
-          <span data-feather="users"></span>
-          Customers
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <span data-feather="bar-chart-2"></span>
-          Reports
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <span data-feather="layers"></span>
-          Integrations
+        <a class="nav-link" asp-controller="Home" asp-action="LongTerm">
+          LongTerm
         </a>
       </li>
     </ul>
