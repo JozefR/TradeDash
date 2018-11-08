@@ -41,3 +41,16 @@ main {
     color: #007bff;
 }
 
+/*Header*/
+
+.header{
+    position: relative;
+}
+
+.header-text-box{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    text-align: center;
+}
+
