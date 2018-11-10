@@ -43,8 +43,9 @@ main {
 
 /*Header*/
 
+/*
 .header{
-    position: relative;
+    width: 30rem;
 }
 
 .header-text-box{
@@ -52,5 +53,57 @@ main {
     left: 50%;
     transform: translate(-50%);
     text-align: center;
+}
+
+.heading-primary-main {
+    display: block;
+    animation-name: moveToDown;
+    animation-duration: 1s;
+}
+
+.heading-primary-sub {
+    display: block;
+    font-size: 1rem;   
+    animation-name: moveToUp;
+    animation-duration: 1s;
+}
+*/
+
+.jumbotron .container{
+    max-width: 30rem;
+}
+
+.heading-primary-main{
+    animation-name: moveToDown;
+    animation-duration: .8s;
+}
+
+.heading-primary-sub{
+    animation-name: moveToUp;
+    animation-duration: .8s;
+}
+
+@keyframes moveToDown {
+    0%{
+        opacity: 0;
+        transform: translateY(-10rem);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveToUp {
+    0%{
+        opacity: 0;
+        transform: translateY(10rem);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
 }
 
