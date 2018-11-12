@@ -81,6 +81,7 @@ main {
 .heading-primary-sub{
     animation-name: moveToUp;
     animation-duration: .8s;
+    font-weight: 400;
 }
 
 @keyframes moveToDown {
