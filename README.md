@@ -16,3 +16,4 @@ list of features i need to do
  - [ ] Find simple, easy to use and free dashboard for my home page.
 
 #### Back End
+ - [ ] Make some research about how to structure and build the backend.
