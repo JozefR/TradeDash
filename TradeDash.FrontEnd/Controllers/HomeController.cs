@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace TradeDash.Controllers
+namespace TradeDash.FrontEnd.Controllers
 {
     public class HomeController : Controller
     {
