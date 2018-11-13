@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeDash.FrontEnd", "TradeDash.FrontEnd\TradeDash.FrontEnd.csproj", "{84AD1417-18F0-4D08-B6F9-005F5568421C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeDash.BackEnd", "TradeDash.BackEnd\TradeDash.BackEnd.csproj", "{2A9933CA-1CB8-4A0C-9780-992C1F60235D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +44,17 @@ Global
 		{84AD1417-18F0-4D08-B6F9-005F5568421C}.Release|x64.Build.0 = Release|Any CPU
 		{84AD1417-18F0-4D08-B6F9-005F5568421C}.Release|x86.ActiveCfg = Release|Any CPU
 		{84AD1417-18F0-4D08-B6F9-005F5568421C}.Release|x86.Build.0 = Release|Any CPU
+		{2A9933CA-1CB8-4A0C-9780-992C1F60235D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A9933CA-1CB8-4A0C-9780-992C1F60235D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A9933CA-1CB8-4A0C-9780-992C1F60235D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2A9933CA-1CB8-4A0C-9780-992C1F60235D}.Debug|x64.Build.0 = Debug|Any CPU
+		{2A9933CA-1CB8-4A0C-9780-992C1F60235D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2A9933CA-1CB8-4A0C-9780-992C1F60235D}.Debug|x86.Build.0 = Debug|Any CPU
+		{2A9933CA-1CB8-4A0C-9780-992C1F60235D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A9933CA-1CB8-4A0C-9780-992C1F60235D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A9933CA-1CB8-4A0C-9780-992C1F60235D}.Release|x64.ActiveCfg = Release|Any CPU
+		{2A9933CA-1CB8-4A0C-9780-992C1F60235D}.Release|x64.Build.0 = Release|Any CPU
+		{2A9933CA-1CB8-4A0C-9780-992C1F60235D}.Release|x86.ActiveCfg = Release|Any CPU
+		{2A9933CA-1CB8-4A0C-9780-992C1F60235D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
