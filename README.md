@@ -18,3 +18,5 @@ list of features i need to do
 #### Back End
  - [ ] Make some research about how to structure and build the backend.
  - [ ] Create a basic EF model.
+ - [ ] Register Db context service.
+ - [ ] Configuring EF migrations.
