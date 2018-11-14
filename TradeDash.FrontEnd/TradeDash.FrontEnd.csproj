@@ -13,4 +13,8 @@
     <Folder Include="wwwroot\img" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TradeDash.BackEnd\TradeDash.BackEnd.csproj" />
+  </ItemGroup>
+
 </Project>
