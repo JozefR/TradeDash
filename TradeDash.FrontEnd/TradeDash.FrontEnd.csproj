@@ -17,4 +17,28 @@
     <ProjectReference Include="..\TradeDash.BackEnd\TradeDash.BackEnd.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <_ResolveComReferenceCache Remove="obj\Debug\netcoreapp2.1\TradeDash.FrontEnd.csproj.ResolveComReference.cache" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <IntermediateAssembly Remove="obj\Debug\netcoreapp2.1\TradeDash.FrontEnd.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_DebugSymbolsIntermediatePath Remove="obj\Debug\netcoreapp2.1\TradeDash.FrontEnd.pdb" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_DeploymentManifestEntryPoint Remove="obj\Debug\netcoreapp2.1\TradeDash.FrontEnd.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ApplicationManifest Remove="obj\Debug\netcoreapp2.1\TradeDash.FrontEnd.dll.manifest" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DeployManifest Remove="obj\Debug\netcoreapp2.1\TradeDash.FrontEnd.application" />
+  </ItemGroup>
+
 </Project>

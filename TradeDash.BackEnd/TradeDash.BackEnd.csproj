@@ -15,4 +15,34 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <_ResolveComReferenceCache Remove="obj\Debug\netcoreapp2.1\TradeDash.BackEnd.csproj.ResolveComReference.cache" />
+    <_ResolveComReferenceCache Remove="obj\Debug\netcoreapp2.1\TradeDash.BackEnd.csproj.ResolveComReference.cache" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <IntermediateAssembly Remove="obj\Debug\netcoreapp2.1\TradeDash.BackEnd.dll" />
+    <IntermediateAssembly Remove="obj\Debug\netcoreapp2.1\TradeDash.BackEnd.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_DebugSymbolsIntermediatePath Remove="obj\Debug\netcoreapp2.1\TradeDash.BackEnd.pdb" />
+    <_DebugSymbolsIntermediatePath Remove="obj\Debug\netcoreapp2.1\TradeDash.BackEnd.pdb" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_DeploymentManifestEntryPoint Remove="obj\Debug\netcoreapp2.1\TradeDash.BackEnd.dll" />
+    <_DeploymentManifestEntryPoint Remove="obj\Debug\netcoreapp2.1\TradeDash.BackEnd.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ApplicationManifest Remove="obj\Debug\netcoreapp2.1\TradeDash.BackEnd.dll.manifest" />
+    <ApplicationManifest Remove="obj\Debug\netcoreapp2.1\TradeDash.BackEnd.dll.manifest" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DeployManifest Remove="obj\Debug\netcoreapp2.1\TradeDash.BackEnd.application" />
+    <DeployManifest Remove="obj\Debug\netcoreapp2.1\TradeDash.BackEnd.application" />
+  </ItemGroup>
+
 </Project>
