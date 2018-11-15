@@ -11,5 +11,6 @@ namespace TradeDash.BackEnd.Models
         }
 
         public DbSet<MoneyManagement> MoneyManagements { get; set; }
+        public DbSet<Strategy> Strategies { get; set; }
     }
 }
