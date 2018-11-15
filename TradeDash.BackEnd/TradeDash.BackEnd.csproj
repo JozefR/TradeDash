@@ -13,6 +13,9 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite">
       <Version>2.2.0-preview3-35497</Version>
     </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design">
+      <Version>2.2.0-preview3-35497</Version>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>

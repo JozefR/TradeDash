@@ -12,11 +12,7 @@
     <Folder Include="Models" />
     <Folder Include="wwwroot\img" />
   </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\TradeDash.BackEnd\TradeDash.BackEnd.csproj" />
-  </ItemGroup>
-
+  
   <ItemGroup>
     <_ResolveComReferenceCache Remove="obj\Debug\netcoreapp2.1\TradeDash.FrontEnd.csproj.ResolveComReference.cache" />
   </ItemGroup>
