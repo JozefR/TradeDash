@@ -20,4 +20,4 @@ list of features i need to do
  - [X] Create a basic EF model.
  - [X] Register Db context service.
  - [X] Configuring EF migrations.
- - [ ] Scaffold Api Controller.
+ - [ ] Scaffold simple strategy Api Controller.
