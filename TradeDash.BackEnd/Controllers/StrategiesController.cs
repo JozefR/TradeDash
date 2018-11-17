@@ -60,6 +60,7 @@ namespace TradeDash.BackEnd.Controllers
             return CreatedAtAction(nameof(GetStrategy), new {id = strategy.Id}, strategy);
         }
 
+        [HttpDelete]
         public async Task<IActionResult> DeleteStrategy([FromRoute]int id)
         {
             var strategy = _db.FindAsync<Strategy>(id);
