@@ -26,9 +26,9 @@ namespace TradeDash.BackEnd.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<decimal>("AccountValue");
+                    b.Property<decimal>("AccountValue").HasColumnType("decimal(9,6)");
 
-                    b.Property<decimal>("AmountAvIfAllBought");
+                    b.Property<decimal>("AmountAvIfAllBought").HasColumnType("decimal(9,6)");
 
                     b.Property<string>("Name");
 
