@@ -52,7 +52,14 @@ namespace TradeDash.BackEnd.Controllers
             var strategy = new Strategy
             {
                 Name = input.Name,
-            };
+                MoneyManagement = new MoneyManagement
+                {
+                    AccountValue = input.MoneyManagement.AccountValue,
+                    AmountAvIfAllBought = input.MoneyManagement.AmountAvIfAllBought,
+                    Name = input.MoneyManagement.Name,
+                    ToBuyAll = input.MoneyManagement.ToBuyAll,
+                }
+            };                                                                        
 
             _db.Strategies.Add(strategy);
             await _db.SaveChangesAsync();
@@ -60,10 +67,10 @@ namespace TradeDash.BackEnd.Controllers
             return CreatedAtAction(nameof(GetStrategy), new {id = strategy.Id}, strategy);
         }
 
-        [HttpDelete]
+        [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteStrategy([FromRoute]int id)
         {
-            var strategy = _db.FindAsync<Strategy>(id);
+            var strategy = await _db.FindAsync<Strategy>(id);
 
             if (strategy == null)
             {
