@@ -21,4 +21,5 @@ list of features i need to do
  - [X] Register Db context service.
  - [X] Configuring EF migrations.
  - [X] Scaffold simple strategy Api Controller.
- - [ ] Testing the APi using the Swashbuckle
+ - [x] Testing the APi using the Swashbuckle
+ - [ ] Create Models for rest entities and add DTO project
