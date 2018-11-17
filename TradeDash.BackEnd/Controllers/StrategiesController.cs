@@ -59,5 +59,22 @@ namespace TradeDash.BackEnd.Controllers
 
             return CreatedAtAction(nameof(GetStrategy), new {id = strategy.Id}, strategy);
         }
+
+        public async Task<IActionResult> DeleteStrategy([FromRoute]int id)
+        {
+            var strategy = _db.FindAsync<Strategy>(id);
+
+            if (strategy == null)
+            {
+                return NotFound();
+            }
+
+            _db.Remove(strategy);
+            
+            //TODO: Handle exceptions
+            await _db.SaveChangesAsync();
+
+            return NoContent();
+        }
     }
 }
