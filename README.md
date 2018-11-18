@@ -1,11 +1,22 @@
 # TradeDash
 
 ### Description
-I am working on description :) 
+A simple ASP.NET Core TradeDash project that I am working in my free time. I am going to develop simple [Blue Chips/Stocks](https://www.investopedia.com/terms/b/bluechip.asp) trading simulation with trading sheets and some statistics. This project is very basic i am just learning Asp.Net Core. Later I am going to describe some trading strategies which i wanna trade and backtest with this project. Anyone who has interest in Stocks and learn ASP. Core is welcome to join :).
+
+### Domain Objects so far
+The base entity will be **Strategy**. Each strategy has its own:
+1. MoneyManagement
+2. EstaminateReturn
+3. ReturnOnStrategy
+
+For each strategy with specific **strategy type** can be recorded **StockTrades** and **OptionTrades**.
+
+Each Stock or [Option](https://www.investopedia.com/terms/s/stockoption.asp) record can have **Status**: 
+1. StockStatus - Opened or Closed.
+2. OptionStatus - Opened, Closed or Expirated
 
 
-### To Do
-list of features i need to do
+### List of features
                    
 #### Front End 
  - [X] Implement npm package manager with task runner.     
