@@ -51,7 +51,6 @@ namespace TradeDash.BackEnd.Controllers
 
             var strategy = new Strategy
             {
-                Name = input.Name,
                 MoneyManagement = new MoneyManagement
                 {
                     AccountValue = input.MoneyManagement.AccountValue,
