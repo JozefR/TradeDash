@@ -9,10 +9,12 @@ namespace TradeDash.BackEnd.Models
         public StrategyType StrategyType { get; set; }
 
         public int MoneyManagementId { get; set; }
-        public virtual MoneyManagement MoneyManagement { get; set; }
+        public MoneyManagement MoneyManagement { get; set; }
 
         public int EstaminateReturnId { get; set; }
         public EstaminateReturn EstaminateReturn { get; set; }
+        
+        
     }
 
     public enum StrategyType
