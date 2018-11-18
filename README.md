@@ -1,7 +1,7 @@
 # TradeDash
 
 ### Description
-A simple ASP.NET Core TradeDash project that I am working in my free time. I am going to develop simple [Blue Chips/Stocks](https://www.investopedia.com/terms/b/bluechip.asp) trading simulation with trading sheets and some statistics. This project is very basic i am just learning Asp.Net Core. Later I am going to describe some trading strategies which i wanna trade and backtest with this project. Anyone who has interest in Stocks and learn ASP. Core is welcome to join :).
+A simple ASP.NET Core TradeDash project that I am working in my free time. I am going to develop simple [Blue Chips/Stocks](https://www.investopedia.com/terms/b/bluechip.asp) trading simulation with trading sheets and some statistics. This project is very basic, anyone who has interest in Stocks and learn ASP. Core is welcome to join :).
 
 ### Domain Objects so far
 The base entity will be **Strategy**. Each strategy has its own:
