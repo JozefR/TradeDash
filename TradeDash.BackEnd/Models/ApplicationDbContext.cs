@@ -12,6 +12,7 @@ namespace TradeDash.BackEnd.Models
 
         public DbSet<MoneyManagement> MoneyManagements { get; set; }
         public DbSet<Strategy> Strategies { get; set; }
+        public DbSet<EstaminateReturn> EstaminateReturns { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -8,11 +8,15 @@ namespace TradeDash.BackEnd.Models
 
         public int MoneyManagementId { get; set; }
         public virtual MoneyManagement MoneyManagement { get; set; }
+
+        public int EstaminateReturnId { get; set; }
+        public EstaminateReturn EstaminateReturn { get; set; }
     }
 
     public enum StrategyType
     {
-        LongTermOptions = 0,
+        Default = 0,
+        LongTermOptions,
         ShortTermOptions
     }
 }
