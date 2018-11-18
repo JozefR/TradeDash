@@ -13,8 +13,8 @@ namespace TradeDash.BackEnd.Models
 
         public int EstaminateReturnId { get; set; }
         public EstaminateReturn EstaminateReturn { get; set; }
-        
-        
+
+        public ICollection<ReturnOnStrategy> ReturnOnStrategy { get; set; }
     }
 
     public enum StrategyType
