@@ -7,8 +7,6 @@ namespace TradeDash.BackEnd.Models
     {
         public int Id { get; set; }
 
-        public string Name { get; set; }
-
         public decimal AccountValue { get; set; }
 
         public decimal ToBuyAll { get; set; }
