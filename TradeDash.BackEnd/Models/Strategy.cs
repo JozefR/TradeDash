@@ -15,6 +15,8 @@ namespace TradeDash.BackEnd.Models
         public EstaminateReturn EstaminateReturn { get; set; }
 
         public ICollection<ReturnOnStrategy> ReturnOnStrategy { get; set; }
+
+        public ICollection<StockTrade> StockTrades { get; set; }
     }
 
     public enum StrategyType

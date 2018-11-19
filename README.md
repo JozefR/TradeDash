@@ -17,11 +17,13 @@ Each strategy has its own:
 For each strategy with specific **strategy type** can be recorded **StockTrades** and **OptionTrades**.
 
 #####StockTrades
+
 Each Stock record can have Status: 
 
     StockStatus - Open/Close.
 
 #####OptionTrades
+
 Each [Option](https://www.investopedia.com/terms/s/stockoption.asp) record can have Status:
 
     OptionStatus - Open/Close.
