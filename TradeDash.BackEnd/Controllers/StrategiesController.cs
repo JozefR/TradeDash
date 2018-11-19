@@ -51,13 +51,19 @@ namespace TradeDash.BackEnd.Controllers
 
             var strategy = new Strategy
             {
+                StrategyType = StrategyType.LongTermOptions,
                 MoneyManagement = new MoneyManagement
                 {
-                    AccountValue = input.MoneyManagement.AccountValue,
-                    AmountAvIfAllBought = input.MoneyManagement.AmountAvIfAllBought,
-                    Name = input.MoneyManagement.Name,
-                    ToBuyAll = input.MoneyManagement.ToBuyAll,
-                }
+                    AccountValue = 10000,
+                    AmountAvIfAllBought = -10000,
+                    ToBuyAll = 20000,
+                },
+                EstaminateReturn = new EstaminateReturn
+                {
+                    AccountValue = 10000,
+                    Percentage = 10,
+                    Premium = 1000,
+                },
             };                                                                        
 
             _db.Strategies.Add(strategy);
