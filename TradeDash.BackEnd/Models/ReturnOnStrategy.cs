@@ -11,5 +11,8 @@ namespace TradeDash.BackEnd.Models
         public double ProfitLoss { get; set; }
 
         public double Total { get; set; }
+
+        public int StrategyId { get; set; }
+        public Strategy Strategy { get; set; }
     }
 }
