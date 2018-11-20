@@ -9,5 +9,8 @@ namespace TradeDash.BackEnd.Models
         public double Premium { get; set; }
 
         public double Percentage { get; set; }
+
+        public int? StrategyId { get; set; }
+        public Strategy Strategy { get; set; }
     }
 }

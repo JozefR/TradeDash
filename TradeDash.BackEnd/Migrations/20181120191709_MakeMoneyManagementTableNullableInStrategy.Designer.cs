@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TradeDash.BackEnd.Models;
 
 namespace TradeDash.BackEnd.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181120191709_MakeMoneyManagementTableNullableInStrategy")]
+    partial class MakeMoneyManagementTableNullableInStrategy
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -31,11 +33,7 @@ namespace TradeDash.BackEnd.Migrations
 
                     b.Property<double>("Premium");
 
-                    b.Property<int?>("StrategyId");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("StrategyId");
 
                     b.ToTable("EstaminateReturns");
                 });
@@ -166,13 +164,6 @@ namespace TradeDash.BackEnd.Migrations
                     b.HasIndex("MoneyManagementId");
 
                     b.ToTable("Strategies");
-                });
-
-            modelBuilder.Entity("TradeDash.BackEnd.Models.EstaminateReturn", b =>
-                {
-                    b.HasOne("TradeDash.BackEnd.Models.Strategy", "Strategy")
-                        .WithMany("EstaminateReturns")
-                        .HasForeignKey("StrategyId");
                 });
 
             modelBuilder.Entity("TradeDash.BackEnd.Models.OptionTrade", b =>

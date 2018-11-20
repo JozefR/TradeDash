@@ -8,9 +8,11 @@ namespace TradeDash.BackEnd.Models
 
         public StrategyType StrategyType { get; set; }
 
-        public int MoneyManagementId { get; set; }
+        public int? MoneyManagementId { get; set; }
         public MoneyManagement MoneyManagement { get; set; }
 
+        public ICollection<EstaminateReturn> EstaminateReturns { get; set; }
+        
         public ICollection<ReturnOnStrategy> ReturnOnStrategy { get; set; }
 
         public ICollection<StockTrade> StockTrades { get; set; }
