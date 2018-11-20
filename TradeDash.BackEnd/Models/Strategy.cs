@@ -11,9 +11,6 @@ namespace TradeDash.BackEnd.Models
         public int MoneyManagementId { get; set; }
         public MoneyManagement MoneyManagement { get; set; }
 
-        public int EstaminateReturnId { get; set; }
-        public EstaminateReturn EstaminateReturn { get; set; }
-
         public ICollection<ReturnOnStrategy> ReturnOnStrategy { get; set; }
 
         public ICollection<StockTrade> StockTrades { get; set; }

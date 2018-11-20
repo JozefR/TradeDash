@@ -58,12 +58,6 @@ namespace TradeDash.BackEnd.Controllers
                     AmountAvIfAllBought = -10000,
                     ToBuyAll = 20000,
                 },
-                EstaminateReturn = new EstaminateReturn
-                {
-                    AccountValue = 10000,
-                    Percentage = 10,
-                    Premium = 1000,
-                },
             };                                                                        
 
             _db.Strategies.Add(strategy);
