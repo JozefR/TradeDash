@@ -11,5 +11,8 @@ namespace TradeDash.BackEnd.Models
         public int Quantity { get; set; }
         public double CurrentPrice { get; set; }
         public double PL { get; set; }
+
+        public int StrategyId { get; set; }
+        public Strategy Strategy { get; set; }
     }
 }
