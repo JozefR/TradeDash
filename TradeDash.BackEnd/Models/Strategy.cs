@@ -17,7 +17,9 @@ namespace TradeDash.BackEnd.Models
         public ICollection<ReturnOnStrategy> ReturnOnStrategy { get; set; }
 
         public ICollection<StockTrade> StockTrades { get; set; }
-    }
+
+        public ICollection<OptionTrade> OptionTrades { get; set; }
+    }    
 
     public enum StrategyType
     {

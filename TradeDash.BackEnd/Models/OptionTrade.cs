@@ -18,5 +18,8 @@ namespace TradeDash.BackEnd.Models
         public double PremiumAfterCommissions { get; set; }
         public double NeededInReserve { get; set; }
         public double LossPremium { get; set; }
+
+        public int StrategyId { get; set; }
+        public Strategy Strategy { get; set; }
     }
 }
