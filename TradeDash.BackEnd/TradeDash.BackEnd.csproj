@@ -49,4 +49,8 @@
     <DeployManifest Remove="obj\Debug\netcoreapp2.1\TradeDash.BackEnd.application" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TradeDash.DTO\TradeDash.DTO.csproj" />
+  </ItemGroup>
+
 </Project>
