@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace TradeDash.BackEnd.Models
 {
@@ -19,7 +20,7 @@ namespace TradeDash.BackEnd.Models
         public double NeededInReserve { get; set; }
         public double LossPremium { get; set; }
 
+        [Required]
         public int StrategyId { get; set; }
-        public Strategy Strategy { get; set; }
     }
 }

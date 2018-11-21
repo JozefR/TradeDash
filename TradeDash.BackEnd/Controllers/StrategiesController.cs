@@ -21,6 +21,7 @@ namespace TradeDash.BackEnd.Controllers
         {
             var strategies = await _db.Strategies.AsNoTracking()
                 .Include(m => m.MoneyManagement)
+                .Include(r => r.ReturnOnStrategy)
                 .ToListAsync();
 
             return Ok(strategies);

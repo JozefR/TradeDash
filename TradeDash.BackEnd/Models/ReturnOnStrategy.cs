@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace TradeDash.BackEnd.Models
 {
     public class ReturnOnStrategy
@@ -12,7 +14,7 @@ namespace TradeDash.BackEnd.Models
 
         public double Total { get; set; }
 
+        [Required]
         public int StrategyId { get; set; }
-        public Strategy Strategy { get; set; }
     }
 }

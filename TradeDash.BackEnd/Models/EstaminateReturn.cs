@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace TradeDash.BackEnd.Models
 {
     public class EstaminateReturn
@@ -10,7 +12,7 @@ namespace TradeDash.BackEnd.Models
 
         public double Percentage { get; set; }
 
-        public int? StrategyId { get; set; }
-        public Strategy Strategy { get; set; }
+        [Required]
+        public int StrategyId { get; set; }
     }
 }
