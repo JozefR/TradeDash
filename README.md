@@ -60,4 +60,5 @@ And each close option can be
  - [X] Configuring EF migrations.
  - [X] Scaffold simple strategy Api Controller.
  - [x] Testing the APi using the Swashbuckle
- - [ ] Create Models for rest entities and add DTO project
+ - [X] Create entities 
+ - [ ] Add DTO project
