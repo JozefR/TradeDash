@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace TradeDash.BackEnd.Models
+namespace TradeDash.BackEnd.Data
 {
     public class StockTrade
     {

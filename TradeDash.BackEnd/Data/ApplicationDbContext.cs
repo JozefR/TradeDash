@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace TradeDash.BackEnd.Models
+namespace TradeDash.BackEnd.Data
 {
     public class ApplicationDbContext : DbContext
     {

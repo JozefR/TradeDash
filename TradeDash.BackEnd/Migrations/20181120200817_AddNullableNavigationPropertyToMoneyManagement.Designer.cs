@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using TradeDash.BackEnd.Models;
+using TradeDash.BackEnd.Data;
 
 namespace TradeDash.BackEnd.Migrations
 {

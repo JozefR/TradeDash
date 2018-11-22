@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace TradeDash.BackEnd.Models
+namespace TradeDash.BackEnd.Data
 {
     public class MoneyManagement
     {

@@ -1,15 +1,11 @@
 using System.Collections.Generic;
 
-namespace TradeDash.BackEnd.Models
+namespace TradeDash.BackEnd.Data
 {
-    public class Strategy
+    public class Strategy : TradeDash.DTO.Strategy
     {
-        public int Id { get; set; }
-
-        public StrategyType StrategyType { get; set; }
-
         public MoneyManagement MoneyManagement { get; set; }
-
+        
         public ICollection<EstaminateReturn> EstaminateReturns { get; set; }
         
         public ICollection<ReturnOnStrategy> ReturnOnStrategy { get; set; }

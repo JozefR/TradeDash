@@ -1,7 +1,8 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using TradeDash.BackEnd.Models;
+using TradeDash.BackEnd.Data;
+using StrategyType = TradeDash.DTO.StrategyType;
 
 namespace TradeDash.BackEnd.Controllers
 {
@@ -52,7 +53,8 @@ namespace TradeDash.BackEnd.Controllers
 
             var strategy = new Strategy
             {
-                StrategyType = StrategyType.LongTermOptions,
+                Id = 1,
+                StrategyType = StrategyType.Default,
                 MoneyManagement = new MoneyManagement
                 {
                     AccountValue = 10000,

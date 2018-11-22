@@ -16,13 +16,17 @@ Each strategy has its own:
 
 For each strategy with specific **strategy type** can be recorded **StockTrades** and **OptionTrades**.
 
+
 #####StockTrades
+
 
 Each Stock record can have Status: 
 
     StockStatus - Open/Close.
 
+
 #####OptionTrades
+
 
 Each [Option](https://www.investopedia.com/terms/s/stockoption.asp) record can have Status:
 
@@ -61,4 +65,5 @@ And each close option can be
  - [X] Scaffold simple strategy Api Controller.
  - [x] Testing the APi using the Swashbuckle
  - [X] Create entities 
- - [X] Add DTO project 
+ - [ ] Add DTO project 
+ 
