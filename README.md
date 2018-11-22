@@ -61,4 +61,4 @@ And each close option can be
  - [X] Scaffold simple strategy Api Controller.
  - [x] Testing the APi using the Swashbuckle
  - [X] Create entities 
- - [ ] Add DTO project
+ - [X] Add DTO project 
