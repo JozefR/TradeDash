@@ -20,7 +20,6 @@ namespace TradeDash.BackEnd.Data
         public double NeededInReserve { get; set; }
         public double LossPremium { get; set; }
 
-        [Required]
-        public int StrategyId { get; set; }
+        public int? StrategyId { get; set; }
     }
 }

@@ -12,7 +12,6 @@ namespace TradeDash.BackEnd.Data
 
         public double Percentage { get; set; }
 
-        [Required]
-        public int StrategyId { get; set; }
+        public int? StrategyId { get; set; }
     }
 }

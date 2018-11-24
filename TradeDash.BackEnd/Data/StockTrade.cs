@@ -13,7 +13,6 @@ namespace TradeDash.BackEnd.Data
         public double CurrentPrice { get; set; }
         public double PL { get; set; }
 
-        [Required]
-        public int StrategyId { get; set; }
+        public int? StrategyId { get; set; }
     }
 }

@@ -10,8 +10,8 @@ using TradeDash.BackEnd.Data;
 namespace TradeDash.BackEnd.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20181122203430_AddNamePropertyToStrategy")]
-    partial class AddNamePropertyToStrategy
+    [Migration("20181124105420_RepairNavigationPropertiesAndAddName")]
+    partial class RepairNavigationPropertiesAndAddName
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -33,7 +33,7 @@ namespace TradeDash.BackEnd.Migrations
 
                     b.Property<double>("Premium");
 
-                    b.Property<int>("StrategyId");
+                    b.Property<int?>("StrategyId");
 
                     b.HasKey("Id");
 
@@ -96,7 +96,7 @@ namespace TradeDash.BackEnd.Migrations
 
                     b.Property<double>("PremiumAfterCommissions");
 
-                    b.Property<int>("StrategyId");
+                    b.Property<int?>("StrategyId");
 
                     b.Property<double>("Strike");
 
@@ -121,7 +121,7 @@ namespace TradeDash.BackEnd.Migrations
 
                     b.Property<double>("ProfitLoss");
 
-                    b.Property<int>("StrategyId");
+                    b.Property<int?>("StrategyId");
 
                     b.Property<double>("Total");
 
@@ -146,7 +146,7 @@ namespace TradeDash.BackEnd.Migrations
 
                     b.Property<int>("Quantity");
 
-                    b.Property<int>("StrategyId");
+                    b.Property<int?>("StrategyId");
 
                     b.Property<double>("StrikePrice");
 
@@ -180,13 +180,12 @@ namespace TradeDash.BackEnd.Migrations
                 {
                     b.HasOne("TradeDash.BackEnd.Data.Strategy")
                         .WithMany("EstaminateReturns")
-                        .HasForeignKey("StrategyId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("StrategyId");
                 });
 
             modelBuilder.Entity("TradeDash.BackEnd.Data.MoneyManagement", b =>
                 {
-                    b.HasOne("TradeDash.BackEnd.Data.Strategy", "Strategy")
+                    b.HasOne("TradeDash.BackEnd.Data.Strategy")
                         .WithOne("MoneyManagement")
                         .HasForeignKey("TradeDash.BackEnd.Data.MoneyManagement", "StrategyId");
                 });
@@ -195,24 +194,21 @@ namespace TradeDash.BackEnd.Migrations
                 {
                     b.HasOne("TradeDash.BackEnd.Data.Strategy")
                         .WithMany("OptionTrades")
-                        .HasForeignKey("StrategyId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("StrategyId");
                 });
 
             modelBuilder.Entity("TradeDash.BackEnd.Data.ReturnOnStrategy", b =>
                 {
                     b.HasOne("TradeDash.BackEnd.Data.Strategy")
                         .WithMany("ReturnOnStrategy")
-                        .HasForeignKey("StrategyId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("StrategyId");
                 });
 
             modelBuilder.Entity("TradeDash.BackEnd.Data.StockTrade", b =>
                 {
                     b.HasOne("TradeDash.BackEnd.Data.Strategy")
                         .WithMany("StockTrades")
-                        .HasForeignKey("StrategyId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("StrategyId");
                 });
 #pragma warning restore 612, 618
         }

@@ -24,8 +24,6 @@ namespace TradeDash.BackEnd.Controllers
         public async Task<IActionResult> GetStrategies()
         {
             var strategies = await _db.Strategies.AsNoTracking()
-                .Include(m => m.MoneyManagement)
-                .Include(r => r.ReturnOnStrategy)
                 .ToListAsync();
 
             return Ok(strategies.Select(s => new StrategyResponse

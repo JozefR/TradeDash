@@ -14,7 +14,6 @@ namespace TradeDash.BackEnd.Data
         public decimal AmountAvIfAllBought { get; set; }
 
         public int? StrategyId { get; set; }
-        public Strategy Strategy { get; set; }
     }
     
     public class ApplicationDbContextFactory : IDesignTimeDbContextFactory<ApplicationDbContext>
