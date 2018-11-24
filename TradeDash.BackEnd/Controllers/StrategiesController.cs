@@ -1,7 +1,10 @@
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TradeDash.BackEnd.Data;
+using TradeDash.DTO;
+using Strategy = TradeDash.BackEnd.Data.Strategy;
 using StrategyType = TradeDash.DTO.StrategyType;
 
 namespace TradeDash.BackEnd.Controllers
@@ -25,26 +28,36 @@ namespace TradeDash.BackEnd.Controllers
                 .Include(r => r.ReturnOnStrategy)
                 .ToListAsync();
 
-            return Ok(strategies);
+            return Ok(strategies.Select(s => new StrategyResponse
+            {
+                Id = s.Id,
+                Name = s.Name,
+                StrategyType = s.StrategyType
+            }));
         }
 
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetStrategy([FromRoute] int id)
         {
-            var strategy = await _db.Strategies.AsNoTracking()
-                .Include(m => m.MoneyManagement)
-                .SingleOrDefaultAsync(s => s.Id == id);
-
+            var strategy = await _db.FindAsync<Strategy>(id);
+            
             if (strategy == null)
             {
                 return NotFound();
             }
 
-            return Ok(strategy);
+            var result = new StrategyResponse
+            {
+                Id = strategy.Id,
+                Name = strategy.Name,
+                StrategyType = strategy.StrategyType
+            };
+
+            return Ok(result);
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateStrategy([FromBody]Strategy input)
+        public async Task<IActionResult> CreateStrategy([FromBody]TradeDash.DTO.Strategy input)
         {
             if (!ModelState.IsValid)
             {
@@ -53,20 +66,20 @@ namespace TradeDash.BackEnd.Controllers
 
             var strategy = new Strategy
             {
-                Id = 1,
+                Name = input.Name,
                 StrategyType = StrategyType.Default,
-                MoneyManagement = new MoneyManagement
-                {
-                    AccountValue = 10000,
-                    AmountAvIfAllBought = -10000,
-                    ToBuyAll = 20000,
-                },
             };                                                                        
 
             _db.Strategies.Add(strategy);
             await _db.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetStrategy), new {id = strategy.Id}, strategy);
+            var result = new StrategyResponse
+            {
+                Id = strategy.Id,
+                Name = strategy.Name
+            };
+
+            return CreatedAtAction(nameof(GetStrategy), new {id = result.Id}, result);
         }
 
         [HttpDelete("{id:int}")]
