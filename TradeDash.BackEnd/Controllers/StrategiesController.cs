@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TradeDash.BackEnd.Data;
+using TradeDash.BackEnd.Infrastructure;
 using TradeDash.DTO;
 using Strategy = TradeDash.BackEnd.Data.Strategy;
 using StrategyType = TradeDash.DTO.StrategyType;
@@ -26,12 +27,9 @@ namespace TradeDash.BackEnd.Controllers
             var strategies = await _db.Strategies.AsNoTracking()
                 .ToListAsync();
 
-            return Ok(strategies.Select(s => new StrategyResponse
-            {
-                Id = s.Id,
-                Name = s.Name,
-                StrategyType = s.StrategyType
-            }));
+            var result = strategies.Select(s => s.MapStrategyResponse());
+
+            return Ok(result);
         }
 
         [HttpGet("{id:int}")]
@@ -44,13 +42,8 @@ namespace TradeDash.BackEnd.Controllers
                 return NotFound();
             }
 
-            var result = new StrategyResponse
-            {
-                Id = strategy.Id,
-                Name = strategy.Name,
-                StrategyType = strategy.StrategyType
-            };
-
+            var result = strategy.MapStrategyResponse();
+    
             return Ok(result);
         }
 
@@ -71,11 +64,7 @@ namespace TradeDash.BackEnd.Controllers
             _db.Strategies.Add(strategy);
             await _db.SaveChangesAsync();
 
-            var result = new StrategyResponse
-            {
-                Id = strategy.Id,
-                Name = strategy.Name
-            };
+            var result = strategy.MapStrategyResponse();
 
             return CreatedAtAction(nameof(GetStrategy), new {id = result.Id}, result);
         }
