@@ -35,5 +35,7 @@ And each close option can be **Expired,Sold,Assigned**.
  - [x] Testing the APi using the Swashbuckle
  - [X] Create entities 
  - [ ] Add DTO project 
- - [ ] Map Strategy entity to DTO and wire up with Front End.
+ - [X] Map Strategy entity to DTO and wire up with Front End.
+ - [ ] CRUD operations for strategy.
+ - [ ] Create background task to consume external api.
  
