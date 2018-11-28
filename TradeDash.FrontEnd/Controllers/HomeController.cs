@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using TradeDash.FrontEnd.Services;
 using TradeDash.FrontEnd.ViewModels;
@@ -10,11 +11,14 @@ namespace TradeDash.FrontEnd.Controllers
     public class HomeController : Controller
     {
         private readonly IApiClient _apiClient;
+        private readonly IMapper _mapper;
 
         public HomeController(
-            IApiClient apiClient)
+            IApiClient apiClient, 
+            IMapper mapper)
         {
             _apiClient = apiClient;
+            _mapper = mapper;
         }
 
         public async Task<IActionResult> Index()
@@ -36,17 +40,7 @@ namespace TradeDash.FrontEnd.Controllers
         {
             var strategies = await _apiClient.GetStrategiesAsync();
 
-            var strategiesVm = new List<StrategyViewModel>();
-            
-            foreach (var strategy in strategies)
-            {
-                var vm = new StrategyViewModel
-                {
-                    Name = strategy.Name,
-                    StrategyType = Enum.GetName(strategy.StrategyType.GetType(), strategy.StrategyType)
-                };
-                strategiesVm.Add(vm);
-            }
+            var strategiesVm = _mapper.Map<List<StrategyViewModel>>(strategies);
             
             return View(strategiesVm);
         }

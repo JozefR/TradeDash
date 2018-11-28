@@ -36,6 +36,7 @@ And each close option can be **Expired,Sold,Assigned**.
  - [X] Create entities 
  - [ ] Add DTO project 
  - [X] Map Strategy entity to DTO and wire up with Front End.
+ - [ ] Add automapper to frontend.
  - [ ] CRUD operations for strategy.
  - [ ] Create background task to consume external api.
  

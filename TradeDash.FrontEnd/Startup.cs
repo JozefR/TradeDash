@@ -1,10 +1,14 @@
 ﻿using System;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using TradeDash.DTO;
+using TradeDash.FrontEnd.Configurations.Startup;
 using TradeDash.FrontEnd.Services;
+using TradeDash.FrontEnd.ViewModels;
 
 namespace TradeDash.FrontEnd
 {
@@ -19,7 +23,8 @@ namespace TradeDash.FrontEnd
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {    
+        {
+            services.ConfigureAutomapper();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             
             services.AddHttpClient<IApiClient, ApiClient>(client =>
