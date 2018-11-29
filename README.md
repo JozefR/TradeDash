@@ -27,16 +27,15 @@ And each close option can be **Expired,Sold,Assigned**.
  - [ ] Find simple, easy to use and free dashboard for my home page.
 
 #### Back End
- - [ ] Make some research about how to structure and build the backend.
- - [X] Create a basic EF model.
+ - [X] Create basic EF model.
  - [X] Register Db context service.
- - [X] Configuring EF migrations.
+ - [X] Configure EF migrations.
  - [X] Scaffold simple strategy Api Controller.
- - [x] Testing the APi using the Swashbuckle
+ - [x] Testing the API using the Swashbuckle
  - [X] Create entities 
  - [ ] Add DTO project 
  - [X] Map Strategy entity to DTO and wire up with Front End.
- - [ ] Add automapper to frontend.
+ - [X] Implement automapper
  - [ ] CRUD operations for strategy.
  - [ ] Create background task to consume external api.
- 
+ - [ ]                  

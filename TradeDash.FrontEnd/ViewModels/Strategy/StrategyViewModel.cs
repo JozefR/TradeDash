@@ -1,4 +1,4 @@
-namespace TradeDash.FrontEnd.ViewModels
+namespace TradeDash.FrontEnd.ViewModels.Strategy
 {
     public class StrategyViewModel
     {

@@ -1,39 +1,32 @@
-﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using TradeDash.FrontEnd.Services;
 using TradeDash.FrontEnd.ViewModels;
+using TradeDash.FrontEnd.ViewModels.Strategy;
 
 namespace TradeDash.FrontEnd.Controllers
 {
-    public class HomeController : Controller
+    public class StrategyController : Controller
     {
         private readonly IApiClient _apiClient;
         private readonly IMapper _mapper;
 
-        public HomeController(
-            IApiClient apiClient, 
-            IMapper mapper)
+        public StrategyController(IApiClient apiClient, IMapper mapper)
         {
             _apiClient = apiClient;
             _mapper = mapper;
         }
 
+        // GET
         public async Task<IActionResult> Index()
         {
-            return View();
-        }
+            var strategies = await _apiClient.GetStrategiesAsync();
 
-        public IActionResult LongTerm()
-        {
-            return View();
-        }
-
-        public IActionResult ShortTerm()
-        {
-            return View();
+            var strategiesVm = _mapper.Map<List<StrategyViewModel>>(strategies);
+        
+            return View(strategiesVm);
         }
     }
 }

@@ -2,6 +2,7 @@ using AutoMapper;
 using Microsoft.Extensions.DependencyInjection;
 using TradeDash.DTO;
 using TradeDash.FrontEnd.ViewModels;
+using TradeDash.FrontEnd.ViewModels.Strategy;
 
 namespace TradeDash.FrontEnd.Configurations.Startup
 {
