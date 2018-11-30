@@ -38,4 +38,3 @@ And each close option can be **Expired,Sold,Assigned**.
  - [X] Implement automapper
  - [ ] CRUD operations for strategy.
  - [ ] Create background task to consume external api.
- - [ ]                  

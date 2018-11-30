@@ -2,8 +2,8 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using TradeDash.DTO;
 using TradeDash.FrontEnd.Services;
-using TradeDash.FrontEnd.ViewModels;
 using TradeDash.FrontEnd.ViewModels.Strategy;
 
 namespace TradeDash.FrontEnd.Controllers
@@ -27,6 +27,30 @@ namespace TradeDash.FrontEnd.Controllers
             var strategiesVm = _mapper.Map<List<StrategyViewModel>>(strategies);
         
             return View(strategiesVm);
+        }
+
+        public IActionResult New()
+        {
+            var vm = new StrategyViewModel();
+
+            return View("StrategyForm", vm);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Save(StrategyViewModel strategy)
+        {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new StrategyViewModel()
+                {
+                    Name = strategy.Name,
+                    StrategyType = strategy.StrategyType,
+                };
+
+                return View("StrategyForm", viewModel);
+            }
+            
+            return RedirectToAction("Index", "Strategy");
         }
     }
 }
