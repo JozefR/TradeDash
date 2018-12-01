@@ -1,30 +1,12 @@
+
 @using TradeDash.DTO
+@using TradeDash.Application.Common
 @model TradeDash.FrontEnd.ViewModels.Strategy.StrategyViewModel
 
 @{
 
     ViewBag.Title = "title";
     Layout = "_Layout";
-}
-
-@{
-    List<SelectListItem> listItems = new List<SelectListItem>();
-    listItems.Add(new SelectListItem
-    {
-        Text = "Exemplo1",
-        Value = "Exemplo1"
-    });
-    listItems.Add(new SelectListItem
-    {
-        Text = "Exemplo2",
-        Value = "Exemplo2",
-        Selected = true
-    });
-    listItems.Add(new SelectListItem
-    {
-        Text = "Exemplo3",
-        Value = "Exemplo3"
-    });
 }
 
 <main role="main" class="col-md-11 ml-sm-auto col-lg-11 px-4">
@@ -43,7 +25,7 @@
                     <label asp-for="StrategyType" class="control-label"></label>
                     <select asp-for="StrategyType"
                             class="form-control"
-                            asp-items="@(new SelectList(@listItems, "Value", "Text"))">
+                            asp-items="@(new SelectList(ViewHelpers.EnumToSelectItem<StrategyType>(), "Value", "Text"))">
                     </select>
                     <span asp-validation-for="StrategyType" class="text-danger"></span>
                 </div>

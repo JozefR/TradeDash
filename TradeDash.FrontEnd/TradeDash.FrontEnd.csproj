@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -43,6 +44,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\TradeDash.Application\TradeDash.Application.csproj" />
     <ProjectReference Include="..\TradeDash.DTO\TradeDash.DTO.csproj" />
   </ItemGroup>
 
