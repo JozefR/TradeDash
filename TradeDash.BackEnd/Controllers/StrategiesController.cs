@@ -70,9 +70,9 @@ namespace TradeDash.BackEnd.Controllers
         [HttpPut("{id:int}")]
         public async Task<IActionResult> Put([FromRoute]int id, [FromBody]TradeDash.DTO.Strategy input)
         {
-            var session = await _db.Strategies.FindAsync(id);
+            var strategy = await _db.Strategies.FindAsync(id);
 
-            if (session == null)
+            if (strategy == null)
             {
                 return NotFound();
             }
@@ -82,9 +82,12 @@ namespace TradeDash.BackEnd.Controllers
                 return BadRequest(ModelState);
             }
 
+            strategy.Name = input.Name;
+            strategy.StrategyType = input.StrategyType;
+
             await _db.SaveChangesAsync();
 
-            var result = session;
+            var result = strategy;
 
             return Ok(result);
         }
