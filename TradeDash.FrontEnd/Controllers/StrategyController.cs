@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.Operations;
 using TradeDash.DTO;
 using TradeDash.FrontEnd.Services;
 using TradeDash.FrontEnd.ViewModels.Strategy;
@@ -19,7 +20,6 @@ namespace TradeDash.FrontEnd.Controllers
             _mapper = mapper;
         }
 
-        // GET
         public async Task<IActionResult> Index()
         {
             var strategies = await _apiClient.GetStrategiesAsync();
@@ -34,6 +34,15 @@ namespace TradeDash.FrontEnd.Controllers
             var vm = new StrategyViewModel();
 
             return View("StrategyForm", vm);
+        }
+        
+        public IActionResult Edit(int id)
+        {
+            var strategy = _apiClient.GetStrategyAsync(id);
+
+            var strategyVm = _mapper.Map<StrategyViewModel>(strategy.Result);
+            
+            return View("StrategyForm", strategyVm);
         }
 
         [HttpPost]
@@ -58,6 +67,14 @@ namespace TradeDash.FrontEnd.Controllers
                 await _apiClient.PutStrategyAsync(strategyDto);
             
             return RedirectToAction("Index", "Strategy");
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _apiClient.DeleteStrategyAsync(id);
+
+            return Ok();
         }
     }
 }

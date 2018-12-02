@@ -48,9 +48,11 @@ namespace TradeDash.FrontEnd.Services
             response.EnsureSuccessStatusCode();
         }
 
-        public Task DeleteStrategyAsync(int id)
+        public async Task DeleteStrategyAsync(int id)
         {
-            throw new System.NotImplementedException();
+            var response = await _httpClient.DeleteAsync($"/api/strategies/{id}");
+
+            response.EnsureSuccessStatusCode();
         }
     }
 }
