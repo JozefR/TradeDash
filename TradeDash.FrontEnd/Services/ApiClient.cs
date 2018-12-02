@@ -34,9 +34,18 @@ namespace TradeDash.FrontEnd.Services
             return await response.Content.ReadAsJsonAsync<StrategyResponse>();
         }
 
-        public Task PutStrategyAsync(Strategy strategy)
+        public async Task PostStrategyAsync(Strategy strategy)
         {
-            throw new System.NotImplementedException();
+            var response = await _httpClient.PostAsJsonAsync($"/api/strategies/", strategy);
+
+            response.EnsureSuccessStatusCode();
+        }
+
+        public async Task PutStrategyAsync(Strategy strategy)
+        {
+            var response = await _httpClient.PutAsJsonAsync($"/api/strategies/{strategy.Id}", strategy);
+
+            response.EnsureSuccessStatusCode();
         }
 
         public Task DeleteStrategyAsync(int id)

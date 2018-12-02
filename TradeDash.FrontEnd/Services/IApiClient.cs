@@ -9,6 +9,7 @@ namespace TradeDash.FrontEnd.Services
         Task<List<StrategyResponse>> GetStrategiesAsync();
         Task<StrategyResponse> GetStrategyAsync(int id);
         Task PutStrategyAsync(Strategy strategy);
+        Task PostStrategyAsync(Strategy strategy);
         Task DeleteStrategyAsync(int id);
     }
 }

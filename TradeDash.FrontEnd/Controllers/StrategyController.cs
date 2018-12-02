@@ -49,6 +49,13 @@ namespace TradeDash.FrontEnd.Controllers
 
                 return View("StrategyForm", viewModel);
             }
+
+            var strategyDto = _mapper.Map<Strategy>(strategy);
+
+            if (strategy.Id == 0)
+                await _apiClient.PostStrategyAsync(strategyDto);
+            else
+                await _apiClient.PutStrategyAsync(strategyDto);
             
             return RedirectToAction("Index", "Strategy");
         }

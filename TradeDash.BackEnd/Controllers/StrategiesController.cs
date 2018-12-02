@@ -4,9 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TradeDash.BackEnd.Data;
 using TradeDash.BackEnd.Infrastructure;
-using TradeDash.DTO;
 using Strategy = TradeDash.BackEnd.Data.Strategy;
-using StrategyType = TradeDash.DTO.StrategyType;
 
 namespace TradeDash.BackEnd.Controllers
 {
@@ -22,7 +20,7 @@ namespace TradeDash.BackEnd.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetStrategies()
+        public async Task<IActionResult> Get()
         {
             var strategies = await _db.Strategies.AsNoTracking()
                 .ToListAsync();
@@ -33,7 +31,7 @@ namespace TradeDash.BackEnd.Controllers
         }
 
         [HttpGet("{id:int}")]
-        public async Task<IActionResult> GetStrategy([FromRoute] int id)
+        public async Task<IActionResult> Get([FromRoute] int id)
         {
             var strategy = await _db.FindAsync<Strategy>(id);
             
@@ -48,17 +46,17 @@ namespace TradeDash.BackEnd.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateStrategy([FromBody]TradeDash.DTO.Strategy input)
+        public async Task<IActionResult> Post([FromBody]TradeDash.DTO.Strategy input)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-
+            
             var strategy = new Strategy
             {
                 Name = input.Name,
-                StrategyType = StrategyType.Default,
+                StrategyType = input.StrategyType,
             };                                                                        
 
             _db.Strategies.Add(strategy);
@@ -66,11 +64,33 @@ namespace TradeDash.BackEnd.Controllers
 
             var result = strategy.MapStrategyResponse();
 
-            return CreatedAtAction(nameof(GetStrategy), new {id = result.Id}, result);
+            return CreatedAtAction(nameof(Get), new {id = result.Id}, result);
+        }
+        
+        [HttpPut("{id:int}")]
+        public async Task<IActionResult> Put([FromRoute]int id, [FromBody]TradeDash.DTO.Strategy input)
+        {
+            var session = await _db.Strategies.FindAsync(id);
+
+            if (session == null)
+            {
+                return NotFound();
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            await _db.SaveChangesAsync();
+
+            var result = session;
+
+            return Ok(result);
         }
 
         [HttpDelete("{id:int}")]
-        public async Task<IActionResult> DeleteStrategy([FromRoute]int id)
+        public async Task<IActionResult> Delete([FromRoute]int id)
         {
             var strategy = await _db.FindAsync<Strategy>(id);
 
