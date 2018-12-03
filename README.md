@@ -36,5 +36,6 @@ And each close option can be **Expired,Sold,Assigned**.
  - [ ] Add DTO project 
  - [X] Map Strategy entity to DTO and wire up with Front End.
  - [X] Implement automapper
- - [ ] CRUD operations for strategy.
+ - [X] CRUD operations for strategy.
+ - [ ] Handle exceptions thrown from backend controller.
  - [ ] Create background task to consume external api.
