@@ -28,7 +28,12 @@ namespace TradeDash.FrontEnd.Services
         public async Task<StrategyResponse> GetStrategyAsync(int id)
         {
             var response = await _httpClient.GetAsync($"/api/strategies/{id}");
-
+            
+            if (response.StatusCode == HttpStatusCode.NotFound)
+            {
+                return null;
+            }
+            
             response.EnsureSuccessStatusCode();
 
             return await response.Content.ReadAsJsonAsync<StrategyResponse>();
@@ -37,7 +42,7 @@ namespace TradeDash.FrontEnd.Services
         public async Task PostStrategyAsync(Strategy strategy)
         {
             var response = await _httpClient.PostAsJsonAsync($"/api/strategies/", strategy);
-
+            
             response.EnsureSuccessStatusCode();
         }
 
@@ -52,6 +57,11 @@ namespace TradeDash.FrontEnd.Services
         {
             var response = await _httpClient.DeleteAsync($"/api/strategies/{id}");
 
+            if (response.StatusCode == HttpStatusCode.NotFound)
+            {
+                return;
+            }
+            
             response.EnsureSuccessStatusCode();
         }
     }

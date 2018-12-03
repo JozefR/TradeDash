@@ -52,6 +52,14 @@ namespace TradeDash.BackEnd.Controllers
             {
                 return BadRequest(ModelState);
             }
+
+            var existingName = await _db.Strategies
+                .SingleOrDefaultAsync(x => x.Name == input.Name);
+
+            if (existingName != null)
+            {
+                return BadRequest(ModelState);
+            }
             
             var strategy = new Strategy
             {
@@ -78,6 +86,14 @@ namespace TradeDash.BackEnd.Controllers
             }
 
             if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            
+            var existingName = await _db.Strategies
+                .SingleOrDefaultAsync(x => x.Name == input.Name);
+
+            if (existingName != null)
             {
                 return BadRequest(ModelState);
             }
