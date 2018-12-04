@@ -39,3 +39,6 @@ And each close option can be **Expired,Sold,Assigned**.
  - [X] CRUD operations for strategy.
  - [ ] Handle exceptions thrown from backend controller.
  - [ ] Create background task to consume external api.
+ - [ ] Find free stocks data provider and implement it into background task.
+ - [ ] Add basic price [indicators.](https://www.investopedia.com/terms/m/market_indicators.asp)
+
