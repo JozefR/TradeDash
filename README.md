@@ -42,3 +42,6 @@ And each close option can be **Expired,Sold,Assigned**.
  - [ ] Find free stocks data provider and implement it into background task.
  - [ ] Add basic price [indicators.](https://www.investopedia.com/terms/m/market_indicators.asp)
 
+
+####Free Data Provider
+Data provided for free by [IEX](https://iextrading.com/developer/). View [IEX’s Terms of Use](https://iextrading.com/api-exhibit-a/).
