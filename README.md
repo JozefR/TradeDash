@@ -43,5 +43,5 @@ And each close option can be **Expired,Sold,Assigned**.
  - [ ] Add basic price [indicators.](https://www.investopedia.com/terms/m/market_indicators.asp)
 
 
-####Free Data Provider
+#### Free Data Provider
 Data provided for free by [IEX](https://iextrading.com/developer/). View [IEX’s Terms of Use](https://iextrading.com/api-exhibit-a/).
