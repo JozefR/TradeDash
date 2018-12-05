@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeDash.Application", "Tr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeDash.BackgroundTasks", "TradeDash.BackgroundTasks\TradeDash.BackgroundTasks.csproj", "{48ED518D-B139-4811-8F15-CE654B11B1F4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeDash.BackgroundTasks.Abstractions", "TradeDash.BackgroundTasks.Abstractions\TradeDash.BackgroundTasks.Abstractions.csproj", "{A52FDB84-C28E-4AF3-9E52-3B6BF7E56452}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeDash.DataApiProviders", "TradeDash.DataApiProviders\TradeDash.DataApiProviders.csproj", "{DA20BF9B-6DA2-4C19-B24C-81FBCB65DECA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -104,5 +108,29 @@ Global
 		{48ED518D-B139-4811-8F15-CE654B11B1F4}.Release|x64.Build.0 = Release|Any CPU
 		{48ED518D-B139-4811-8F15-CE654B11B1F4}.Release|x86.ActiveCfg = Release|Any CPU
 		{48ED518D-B139-4811-8F15-CE654B11B1F4}.Release|x86.Build.0 = Release|Any CPU
+		{A52FDB84-C28E-4AF3-9E52-3B6BF7E56452}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A52FDB84-C28E-4AF3-9E52-3B6BF7E56452}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A52FDB84-C28E-4AF3-9E52-3B6BF7E56452}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A52FDB84-C28E-4AF3-9E52-3B6BF7E56452}.Debug|x64.Build.0 = Debug|Any CPU
+		{A52FDB84-C28E-4AF3-9E52-3B6BF7E56452}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A52FDB84-C28E-4AF3-9E52-3B6BF7E56452}.Debug|x86.Build.0 = Debug|Any CPU
+		{A52FDB84-C28E-4AF3-9E52-3B6BF7E56452}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A52FDB84-C28E-4AF3-9E52-3B6BF7E56452}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A52FDB84-C28E-4AF3-9E52-3B6BF7E56452}.Release|x64.ActiveCfg = Release|Any CPU
+		{A52FDB84-C28E-4AF3-9E52-3B6BF7E56452}.Release|x64.Build.0 = Release|Any CPU
+		{A52FDB84-C28E-4AF3-9E52-3B6BF7E56452}.Release|x86.ActiveCfg = Release|Any CPU
+		{A52FDB84-C28E-4AF3-9E52-3B6BF7E56452}.Release|x86.Build.0 = Release|Any CPU
+		{DA20BF9B-6DA2-4C19-B24C-81FBCB65DECA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA20BF9B-6DA2-4C19-B24C-81FBCB65DECA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA20BF9B-6DA2-4C19-B24C-81FBCB65DECA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DA20BF9B-6DA2-4C19-B24C-81FBCB65DECA}.Debug|x64.Build.0 = Debug|Any CPU
+		{DA20BF9B-6DA2-4C19-B24C-81FBCB65DECA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DA20BF9B-6DA2-4C19-B24C-81FBCB65DECA}.Debug|x86.Build.0 = Debug|Any CPU
+		{DA20BF9B-6DA2-4C19-B24C-81FBCB65DECA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA20BF9B-6DA2-4C19-B24C-81FBCB65DECA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA20BF9B-6DA2-4C19-B24C-81FBCB65DECA}.Release|x64.ActiveCfg = Release|Any CPU
+		{DA20BF9B-6DA2-4C19-B24C-81FBCB65DECA}.Release|x64.Build.0 = Release|Any CPU
+		{DA20BF9B-6DA2-4C19-B24C-81FBCB65DECA}.Release|x86.ActiveCfg = Release|Any CPU
+		{DA20BF9B-6DA2-4C19-B24C-81FBCB65DECA}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
