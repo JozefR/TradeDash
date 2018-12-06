@@ -1,16 +1,26 @@
-using System.Collections.Generic;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Hosting;
-using TradeDash.BackgroundTasks.Abstractions;
+using TradeDash.DataApiProviders;
 
 namespace TradeDash.BackgroundTasks
 {
-    public class DataRefreshService : HostedService 
+    public class DataRefreshService : HostedService
     {
-        protected override Task ExecuteAsync(CancellationToken cancellationToken, CancellationTokenSource cts)
+        private readonly RandomStringProvider _stringProvider;
+
+        public DataRefreshService(RandomStringProvider stringProvider)
         {
-            throw new System.NotImplementedException();
+            _stringProvider = stringProvider;
+        }
+
+        protected override async Task ExecuteAsync(CancellationToken cancellationToken, CancellationTokenSource cts)
+        {
+            while (!cancellationToken.IsCancellationRequested)
+            {
+                await _stringProvider.UpdateString(cancellationToken, cts);
+                await Task.Delay(TimeSpan.FromSeconds(5), cancellationToken);
+            }
         }
     }
 }

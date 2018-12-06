@@ -18,6 +18,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\TradeDash.BackgroundTasks.Abstractions\TradeDash.BackgroundTasks.Abstractions.csproj" />
+      <ProjectReference Include="..\TradeDash.DataApiProviders\TradeDash.DataApiProviders.csproj" />
     </ItemGroup>
 
 </Project>

@@ -36,11 +36,11 @@ namespace TradeDash.FrontEnd.Controllers
             return View("StrategyForm", vm);
         }
         
-        public IActionResult Edit(int id)
+        public async Task<IActionResult> Edit(int id)
         {
-            var strategy = _apiClient.GetStrategyAsync(id);
+            var strategy = await _apiClient.GetStrategyAsync(id);
 
-            var strategyVm = _mapper.Map<StrategyViewModel>(strategy.Result);
+            var strategyVm = _mapper.Map<StrategyViewModel>(strategy);
             
             return View("StrategyForm", strategyVm);
         }

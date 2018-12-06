@@ -47,6 +47,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\TradeDash.BackgroundTasks\TradeDash.BackgroundTasks.csproj" />
     <ProjectReference Include="..\TradeDash.DTO\TradeDash.DTO.csproj" />
   </ItemGroup>
 
