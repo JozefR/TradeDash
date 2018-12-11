@@ -25,6 +25,7 @@ namespace TradeDash.BackEnd
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddBackgroundTasks();
+            services.AddScoped<IExDataProvider, ExDataProvider>();
             services.AddSingleton<RandomStringProvider>();
             services.AddDbContext<ApplicationDbContext>(options =>
             {
@@ -46,6 +47,12 @@ namespace TradeDash.BackEnd
                     new Info
                     {
                         Title = "TradeDash API", Version = "v1",
+                        Contact = new Contact {Name = "Jozef Randjak", Email = "randjakjozef@gmail.com"}
+                    });
+                c.SwaggerDoc("v2",
+                    new Info
+                    {
+                        Title = "TradeDash API", Version = "v2",
                         Contact = new Contact {Name = "Jozef Randjak", Email = "randjakjozef@gmail.com"}
                     });
             });

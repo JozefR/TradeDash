@@ -7,16 +7,23 @@ namespace TradeDash.BackEnd.Controllers
     public class DataController : Controller
     {
         private readonly RandomStringProvider _randomStringProvider;
+        private readonly IExDataProvider _exDataProvider;
 
-        public DataController(RandomStringProvider randomStringProvider)
+        public DataController(
+            RandomStringProvider randomStringProvider, 
+            IExDataProvider exDataProvider)
         {
             _randomStringProvider = randomStringProvider;
+            _exDataProvider = exDataProvider;
         }
 
         [HttpGet]
         public string Get()
         {
-            return _randomStringProvider.RandomString;
+            var test = _exDataProvider.ConnectClientToGetDataAsync();
+            var test2 = _exDataProvider.ConnectClientToGetData();
+
+            return null;
         }
     }
 }
