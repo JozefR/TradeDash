@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
 using TradeDash.BackEnd.Data;
+using TradeDash.BackEnd.Services;
 using TradeDash.BackgroundTasks;
 using TradeDash.DataApiProviders;
 
@@ -25,7 +26,6 @@ namespace TradeDash.BackEnd
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddBackgroundTasks();
-            services.AddScoped<IExDataProvider, ExDataProvider>();
             services.AddSingleton<RandomStringProvider>();
             services.AddDbContext<ApplicationDbContext>(options =>
             {
@@ -41,6 +41,8 @@ namespace TradeDash.BackEnd
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
+            services.AddHttpClient<IApiClient, ApiClient>();
+            
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1",

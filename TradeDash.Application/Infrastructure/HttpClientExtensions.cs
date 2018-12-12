@@ -3,7 +3,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace TradeDash.FrontEnd.Infrastructure
+namespace TradeDash.Application.Infrastructure
 {
     public static class HttpClientExtensions
     {

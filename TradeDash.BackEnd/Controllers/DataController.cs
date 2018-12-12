@@ -1,29 +1,26 @@
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using TradeDash.DataApiProviders;
+using TradeDash.BackEnd.Services;
 
 namespace TradeDash.BackEnd.Controllers
 {
     [Route("api/[controller]")]
     public class DataController : Controller
     {
-        private readonly RandomStringProvider _randomStringProvider;
-        private readonly IExDataProvider _exDataProvider;
+        private readonly IApiClient _apiClient;
 
-        public DataController(
-            RandomStringProvider randomStringProvider, 
-            IExDataProvider exDataProvider)
+        public DataController(IApiClient apiClient)
         {
-            _randomStringProvider = randomStringProvider;
-            _exDataProvider = exDataProvider;
+            _apiClient = apiClient;
         }
 
         [HttpGet]
-        public string Get()
+        public async Task<List<object>> Get()
         {
-            var test = _exDataProvider.ConnectClientToGetDataAsync();
-            var test2 = _exDataProvider.ConnectClientToGetData();
-
-            return null;
+            var notSerializedData = await _apiClient.GetStocksAsync();
+            
+            return notSerializedData;
         }
     }
 }
