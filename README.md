@@ -38,9 +38,10 @@ And each close option can be **Expired,Sold,Assigned**.
  - [X] Implement automapper
  - [X] CRUD operations for strategy.
  - [ ] Handle exceptions thrown from backend controller.
- - [ ] Create background task to consume external api.
- - [ ] Find free stocks data provider and implement it into background task.
- - [ ] Build example controller to consume data from external api using background task.
+ - [X] Create background task to consume external api.
+ - [X] Find free stocks data provider and implement it into background task.
+ - [X] Build example controller to consume data from external api using background task.
+ - [ ] Build serializer service for IEX data provider
  - [ ] Add basic price [indicators.](https://www.investopedia.com/terms/m/market_indicators.asp)
 
 
