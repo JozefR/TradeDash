@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 using TradeDash.Application.Infrastructure;
 
 namespace TradeDash.BackEnd.Services
@@ -14,13 +15,13 @@ namespace TradeDash.BackEnd.Services
             _httpClient = httpClient;
         }
 
-        public async Task<List<object>> GetStocksAsync()
+        public async Task<List<JObject>> GetStocksAsync()
         {
             var response = await _httpClient.GetAsync("https://api.iextrading.com/1.0/stock/aapl/chart/1y");
 
             response.EnsureSuccessStatusCode();
 
-            return await response.Content.ReadAsJsonAsync<List<object>>();
+            return await response.Content.ReadAsJsonAsync<List<JObject>>();
         }
     }
 }
