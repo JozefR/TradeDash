@@ -6,6 +6,6 @@ namespace TradeDash.BackEnd.Services
 {
     public interface IApiClient
     {
-        Task<List<JObject>> GetStocksAsync();
+        Task<List<JObject>> GetStocksAsync(string ticker, string history);
     }
 }

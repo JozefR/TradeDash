@@ -16,10 +16,10 @@ namespace TradeDash.BackEnd.Controllers
             _apiClient = apiClient;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Get()
+        [HttpGet("{ticker}/{history}")]
+        public async Task<IActionResult> Get([FromRoute] string ticker, string history)
         {
-            var stocks = await _apiClient.GetStocksAsync();
+            var stocks = await _apiClient.GetStocksAsync(ticker, history);
 
             var results = stocks.Select(x => x.MapDataResponse());
 
