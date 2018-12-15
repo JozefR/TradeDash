@@ -26,7 +26,7 @@ namespace TradeDash.BackEnd
             services.AddSingleton<RandomStringProvider>();
             services.ConfigureSwagger();
             services.ConfigureDbContext(Configuration);
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddHttpClient<IApiClient, ApiClient>();
         }
 
