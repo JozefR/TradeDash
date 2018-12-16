@@ -15,6 +15,7 @@
                             <table class="table table-striped table-sm table-bordered" id="stockTable">
                                 <thead>
                                 <tr>
+                                    <th>Number</th>
                                     <th>Ticker</th>
                                     <th>Date</th>
                                     <th>Volume</th>
@@ -26,6 +27,7 @@
                                 @foreach (var stock in @Model)
                                 {
                                     <tr>
+                                        <td>@stock.Number</td>
                                         <td>@stock.Ticker</td>
                                         <td>@stock.Date</td>
                                         <td>@stock.Volume</td>

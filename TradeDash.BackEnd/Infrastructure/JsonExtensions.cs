@@ -6,10 +6,11 @@ namespace TradeDash.BackEnd.Infrastructure
 {
     public static class JsonExtensions
     {
-        public static StockResponse MapDataResponse(this JObject jObject, string ticker)
+        public static StockResponse MapDataResponse(this JObject jObject, string ticker, int number)
         {
             return new StockResponse
             {
+                Number = number,
                 Ticker = ticker,
                 Date = DateTime.Parse(jObject["date"].ToString()),
                 Open = double.Parse(jObject["open"].ToString()),

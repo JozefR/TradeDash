@@ -1,3 +1,4 @@
+using System.Globalization;
 using AutoMapper;
 using Microsoft.Extensions.DependencyInjection;
 using TradeDash.DTO;
@@ -38,8 +39,9 @@ namespace TradeDash.FrontEnd.Configurations.Startup
         public StockReadingProfile()
         {
             CreateMap<StockResponse, StockViewModel>()
+                .ForMember(d => d.Number, m => m.MapFrom(s => s.Number))
                 .ForMember(d => d.Ticker, m => m.MapFrom(s => s.Ticker))
-                .ForMember(d => d.Date, m => m.MapFrom(s => s.Date.ToShortDateString()))
+                .ForMember(d => d.Date, m => m.MapFrom(s => s.Date.ToString("MM/dd/yyyy", CultureInfo.InvariantCulture)))
                 .ForMember(d => d.Volume, m => m.MapFrom(s => s.Volume))
                 .ForMember(d => d.ClosePrice, m => m.MapFrom(s => s.Close))
                 .ForMember(d => d.ChangePercent, m => m.MapFrom(s => s.ChangePercent));

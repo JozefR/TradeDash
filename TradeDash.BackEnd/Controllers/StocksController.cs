@@ -1,5 +1,7 @@
+using System;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Xml.Schema;
 using Microsoft.AspNetCore.Mvc;
 using TradeDash.BackEnd.Infrastructure;
 using TradeDash.BackEnd.Services;
@@ -27,8 +29,10 @@ namespace TradeDash.BackEnd.Controllers
                 return null;
             }
             
-            var results = stocks.Select(x => x.MapDataResponse(ticker));
-
+            var orderResults = stocks.OrderBy(x => DateTime.Parse(x["date"].ToString()));
+            int number = 0;
+            var results = orderResults.Select(x => x.MapDataResponse(ticker, ++number));
+            
             return Ok(results);
         }
     }
