@@ -7,11 +7,11 @@ using TradeDash.BackEnd.Services;
 namespace TradeDash.BackEnd.Controllers
 {
     [Route("api/[controller]")]
-    public class DataController : Controller
+    public class StocksController : Controller
     {
         private readonly IApiClient _apiClient;
 
-        public DataController(IApiClient apiClient)
+        public StocksController(IApiClient apiClient)
         {
             _apiClient = apiClient;
         }

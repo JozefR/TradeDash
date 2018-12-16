@@ -39,9 +39,9 @@ And each close option can be **Expired,Sold,Assigned**.
  - [X] CRUD operations for strategy.
  - [ ] Handle exceptions thrown from backend controller.
  - [X] Create background task to consume external api.
- - [X] Find free stocks data provider and implement it into background task.
+ - [X] Find free stocks data provider. 
  - [X] Build example controller to consume data from external api using background task.
- - [ ] Build serializer service for IEX data provider
+ - [ ] Add page to show data for given stocks.
  - [ ] Add basic price [indicators.](https://www.investopedia.com/terms/m/market_indicators.asp)
 
 
