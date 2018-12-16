@@ -7,6 +7,7 @@ using TradeDash.BackEnd.Services;
 namespace TradeDash.BackEnd.Controllers
 {
     [Route("api/[controller]")]
+    [ApiController]
     public class StocksController : Controller
     {
         private readonly IApiClient _apiClient;
@@ -21,7 +22,12 @@ namespace TradeDash.BackEnd.Controllers
         {
             var stocks = await _apiClient.GetStocksAsync(ticker, history);
 
-            var results = stocks.Select(x => x.MapDataResponse());
+            if (stocks == null)
+            {
+                return null;
+            }
+            
+            var results = stocks.Select(x => x.MapDataResponse(ticker));
 
             return Ok(results);
         }

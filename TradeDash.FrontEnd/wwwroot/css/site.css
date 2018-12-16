@@ -111,5 +111,5 @@ main {
 /*DataTable*/
 
 .dataTables_filter {
-    float: right;
+    float: right !important;
 }

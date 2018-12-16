@@ -17,6 +17,7 @@ namespace TradeDash.FrontEnd.Services
             _httpClient = httpClient;
         }
 
+        #region Strategies
         public async Task<List<StrategyResponse>> GetStrategiesAsync()
         {
             var response = await _httpClient.GetAsync("/api/strategies");
@@ -64,6 +65,21 @@ namespace TradeDash.FrontEnd.Services
             }
             
             response.EnsureSuccessStatusCode();
+        }
+        #endregion
+        
+        public async Task<List<StockResponse>> GetStocksAsync()
+        {
+            var response = await _httpClient.GetAsync("/api/stocks/Aapl/1y");
+
+            if (response.StatusCode == HttpStatusCode.InternalServerError)
+            {
+                return null;
+            }
+            
+            response.EnsureSuccessStatusCode();
+
+            return await response.Content.ReadAsJsonAsync<List<StockResponse>>();
         }
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
@@ -22,6 +23,11 @@ namespace TradeDash.BackEnd.Services
             string iexPath = String.Format(ProviderSettings.iex_provider_path, String.Concat(ticker), String.Concat(history));
             
             var response = await _httpClient.GetAsync(iexPath);
+
+            if (response.StatusCode == HttpStatusCode.NotFound)
+            {
+                return null;
+            }
 
             response.EnsureSuccessStatusCode();
 
