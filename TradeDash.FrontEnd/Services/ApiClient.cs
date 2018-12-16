@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 using TradeDash.Application.Infrastructure;
 using TradeDash.DTO;
 
@@ -68,9 +69,10 @@ namespace TradeDash.FrontEnd.Services
         }
         #endregion
         
-        public async Task<List<StockResponse>> GetStocksAsync()
+        [HttpGet("{ticker}/{history}")]
+        public async Task<List<StockResponse>> GetStocksAsync(string ticker, string history)
         {
-            var response = await _httpClient.GetAsync("/api/stocks/Aapl/1y");
+            var response = await _httpClient.GetAsync($"/api/stocks/{ticker}/{history}");
 
             if (response.StatusCode == HttpStatusCode.InternalServerError)
             {

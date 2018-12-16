@@ -113,3 +113,11 @@ main {
 .dataTables_filter {
     float: right !important;
 }
+
+.dataTables_info {
+    display: inline !important;
+}
+
+.dataTables_paginate{
+    float: right !important;
+}
