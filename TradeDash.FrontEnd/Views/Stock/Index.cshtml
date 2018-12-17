@@ -19,7 +19,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">Ticker</span>
                                         </div>
-                                        <input class="ticker-input" value="Aapl" type="text" aria-label="Ticker" class="form-control">
+                                        <input class="ticker-input" type="text" aria-label="Ticker" class="form-control">
                                     </div>                     
                                 </div>
                                 <div class="col-4">
@@ -27,7 +27,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">History</span>
                                         </div>
-                                        <input class="history-input" value="1y" type="text" aria-label="History" class="form-control">
+                                        <input class="history-input" type="text" aria-label="History" class="form-control">
                                     </div>
                                 </div>      
                                 <div class="col-4">
@@ -79,7 +79,6 @@
             $("#stocks").on("click",
                 ".js-find",
                 function() {
-                    var button = $(this);
                     var ticker = $(".ticker-input").val();
                     var history = $(".history-input").val();
                     if (confirm("Do you want to try find this stock?")) {

@@ -3,7 +3,9 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore.Migrations;
+using TradeDash.DTO;
 using TradeDash.FrontEnd.Services;
 using TradeDash.FrontEnd.ViewModels.Stock;
 
@@ -33,7 +35,12 @@ namespace TradeDash.FrontEnd.Controllers
         {
             var stocks = await _apiClient.GetStocksAsync(ticker, history);
 
-            var stocksVm = _mapper.Map<List<StockViewModel>>(stocks);
+            var stocksVm = new List<StockViewModel>();
+
+            if (stocks != null)
+            {
+                stocksVm = _mapper.Map<List<StockViewModel>>(stocks);                
+            }
 
             return View("Index", stocksVm);
         }

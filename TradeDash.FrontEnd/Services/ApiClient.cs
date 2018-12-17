@@ -78,6 +78,11 @@ namespace TradeDash.FrontEnd.Services
             {
                 return null;
             }
+
+            if (response.StatusCode == HttpStatusCode.NotFound)
+            {
+                return null;
+            }
             
             response.EnsureSuccessStatusCode();
 
