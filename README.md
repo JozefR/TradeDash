@@ -41,7 +41,8 @@ And each close option can be **Expired,Sold,Assigned**.
  - [X] Create background task to consume external api.
  - [X] Find free stocks data provider. 
  - [X] Build example controller to consume data from external api using background task.
- - [ ] Add page to show data for given stocks.
+ - [X] Add page to show data for given stocks.
+ - [ ] Find free library for showing data in charts.
  - [ ] Add basic price [indicators.](https://www.investopedia.com/terms/m/market_indicators.asp)
 
 
