@@ -10,8 +10,8 @@
         /// </summary>
         public SMA()
         {
-            this.Name = "Simple Moving Average";
-            this.ShortName = "SMA";
+            Name = "Simple Moving Average";
+            ShortName = "SMA";
         }
 
         /// <summary>

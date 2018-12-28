@@ -51,6 +51,7 @@
     <ProjectReference Include="..\TradeDash.Application\TradeDash.Application.csproj" />
     <ProjectReference Include="..\TradeDash.BackgroundTasks\TradeDash.BackgroundTasks.csproj" />
     <ProjectReference Include="..\TradeDash.DTO\TradeDash.DTO.csproj" />
+    <ProjectReference Include="..\TradeDash.Indicators\TradeDash.Indicators.csproj" />
   </ItemGroup>
 
 </Project>

@@ -41,10 +41,14 @@ namespace TradeDash.FrontEnd.Configurations.Startup
             CreateMap<StockResponse, StockViewModel>()
                 .ForMember(d => d.Number, m => m.MapFrom(s => s.Number))
                 .ForMember(d => d.Ticker, m => m.MapFrom(s => s.Ticker))
-                .ForMember(d => d.Date, m => m.MapFrom(s => s.Date.ToString("MM/dd/yyyy", CultureInfo.InvariantCulture)))
+                .ForMember(d => d.Date,
+                    m => m.MapFrom(s => s.Date.ToString("MM/dd/yyyy", CultureInfo.InvariantCulture)))
                 .ForMember(d => d.Volume, m => m.MapFrom(s => s.Volume))
                 .ForMember(d => d.ClosePrice, m => m.MapFrom(s => s.Close))
-                .ForMember(d => d.ChangePercent, m => m.MapFrom(s => s.ChangePercent));
+                .ForMember(d => d.ChangePercent, m => m.MapFrom(s => s.ChangePercent))
+                .ForMember(d => d.LongSMA, m => m.MapFrom(s => s.ConnorIndicators.LongSMA))
+                .ForMember(d => d.ShortSMA, m => m.Ignore())
+                .ForMember(d => d.RSI, m => m.Ignore());
         }
     }
 }

@@ -4,5 +4,7 @@ namespace TradeDash.DTO
     {
         public int Number { get; set; }
         public string Ticker { get; set; }
+
+        public ConnorIndicators ConnorIndicators { get; set; } = new ConnorIndicators();
     }
 }

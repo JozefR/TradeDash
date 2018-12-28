@@ -6,7 +6,8 @@ namespace TradeDash.BackEnd.Infrastructure
 {
     public static class JsonExtensions
     {
-        public static StockResponse MapDataResponse(this JObject jObject, string ticker, int number)
+        public static StockResponse MapDataResponse(
+            this JObject jObject, string ticker, int number)
         {
             return new StockResponse
             {
