@@ -31,9 +31,26 @@ namespace TradeDash.BackEnd.Controllers
                 return null;
             }
             
-            var dataResponse = ProcessDataResponse(stocks, ticker);
+            var dataResponse = ProcessDataResponse(stocks, ticker).ToArray();
+            CalculateIndicatorsForDataResponse(dataResponse);
             
             return Ok(dataResponse);
+        }
+
+        private static void CalculateIndicatorsForDataResponse(StockResponse[] dataResponse)
+        {
+            double[] stockClosePrices = dataResponse.Select(x => x.Close).ToArray();
+            
+            double[] longSma = Indicators.SMA.Calculate(stockClosePrices, 200);
+            double[] shortSma = Indicators.SMA.Calculate(stockClosePrices, 5);
+            double[] rsi = Indicators.RSI.Calculate(stockClosePrices, 10);
+            
+            for (int i = 0; i < dataResponse.Length; i++)
+            {
+                dataResponse[i].ConnorIndicators.LongSMA = longSma[i];
+                dataResponse[i].ConnorIndicators.ShortSMA = shortSma[i];
+                dataResponse[i].ConnorIndicators.Rsi = rsi[i];
+            }
         }
 
         private static IEnumerable<StockResponse> ProcessDataResponse(IEnumerable<JObject> stocks, string ticker)
@@ -41,15 +58,7 @@ namespace TradeDash.BackEnd.Controllers
             var orderResults = stocks.OrderBy(x => DateTime.Parse(x["date"].ToString()));
 
             int number = 0;
-            var results = new List<StockResponse>();
-
-            foreach (var result in orderResults)
-            {
-                ++number;
-                var dataResponse = result.MapDataResponse(ticker, number);
-                
-                results.Add(dataResponse);
-            }
+            var results = orderResults.Select(x => x.MapDataResponse(ticker, ++number));
 
             return results;
         }
