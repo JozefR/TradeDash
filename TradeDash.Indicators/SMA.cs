@@ -2,24 +2,6 @@
 {
     public class SMA
     {
-        public string Name { get; }
-        public string ShortName { get; }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SMA"/> class. 
-        /// </summary>
-        public SMA()
-        {
-            Name = "Simple Moving Average";
-            ShortName = "SMA";
-        }
-
-        /// <summary>
-        /// Calculates indicator.
-        /// </summary>
-        /// <param name="price">Price series.</param>
-        /// <param name="period">Indicator period.</param>
-        /// <returns>Calculated indicator series.</returns>
         public static double[] Calculate(double[] price, int period)
         {
             var sma = new double[price.Length];
