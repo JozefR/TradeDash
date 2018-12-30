@@ -47,9 +47,9 @@ namespace TradeDash.BackEnd.Controllers
             
             for (int i = 0; i < dataResponse.Length; i++)
             {
-                dataResponse[i].ConnorIndicators.LongSMA = longSma[i];
-                dataResponse[i].ConnorIndicators.ShortSMA = shortSma[i];
-                dataResponse[i].ConnorIndicators.Rsi = rsi[i];
+                dataResponse[i].ConnorIndicators.LongSMA = Math.Round(longSma[i], 2);
+                dataResponse[i].ConnorIndicators.ShortSMA = Math.Round(shortSma[i], 2);
+                dataResponse[i].ConnorIndicators.Rsi = Math.Round(rsi[i], 2);
             }
         }
 
