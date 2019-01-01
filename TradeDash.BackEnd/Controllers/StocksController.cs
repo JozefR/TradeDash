@@ -55,11 +55,11 @@ namespace TradeDash.BackEnd.Controllers
 
         private static IEnumerable<StockResponse> ProcessDataResponse(IEnumerable<JObject> stocks, string ticker)
         {
-            var orderResults = stocks.OrderBy(x => DateTime.Parse(x["date"].ToString()));
-
             int number = 0;
-            var results = orderResults.Select(x => x.MapDataResponse(ticker, ++number));
-
+            
+            var response = stocks.Select(x => x.MapDataResponse(ticker, ++number));
+            var results = response.OrderBy(x => x.Date);
+            
             return results;
         }
     }

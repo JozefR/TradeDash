@@ -44,6 +44,7 @@ And each close option can be **Expired,Sold,Assigned**.
  - [X] Add page to show data for given stocks.
  - [ ] Find free library for showing data in charts.
  - [X] Add basic price [indicators.](https://www.investopedia.com/terms/m/market_indicators.asp)
+ - [ ] Build simple stock strategy.
 
 
 #### Free Data Provider
