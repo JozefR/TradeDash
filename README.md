@@ -45,6 +45,18 @@ And each close option can be **Expired,Sold,Assigned**.
  - [ ] Find free library for showing data in charts.
  - [X] Add basic price [indicators.](https://www.investopedia.com/terms/m/market_indicators.asp)
  - [ ] Build simple stock strategy.
+ 
+ ## Simple Connors Rsi Strategy
+ 
+ ### Buying Rules
+ 
+ 1. Pick some stock
+ 2. We are going to trade only once a day at close price.
+ 3. Price must be above long SMA.
+ 4. We are buying stock only when price is below Rsi(2).
+ 6. Sell only when price is above short SMA.
+ 7. At first we are always buying 100 ks of picked stock.
+
 
 
 #### Free Data Provider
