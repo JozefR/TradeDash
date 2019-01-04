@@ -18,7 +18,7 @@ namespace TradeDash.BackEnd.Services
             _httpClient = httpClient;
         }
 
-        public async Task<List<JObject>> GetStocksIexDataAsync(string ticker, string history)
+        public async Task<List<JObject>> GetStocksAsync(string ticker, string history)
         {
             string iexPath = String.Format(ProviderSettings.iex_provider_path, String.Concat(ticker), String.Concat(history));
             

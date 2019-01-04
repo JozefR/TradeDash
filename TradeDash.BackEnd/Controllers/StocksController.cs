@@ -24,36 +24,39 @@ namespace TradeDash.BackEnd.Controllers
         [HttpGet("{ticker}/{history}")]
         public async Task<IActionResult> Get([FromRoute] string ticker, string history)
         {
-            var stocks = await _apiClient.GetStocksIexDataAsync(ticker, history);
+            var stocks = await _apiClient.GetStocksAsync(ticker, history);
 
             if (stocks == null)
             {
                 return null;
             }
+
+            var orderedDataResponse = MapAndOrderDataResponse(stocks, ticker);
+            var results = CalculateIndicatorsForDataResponse(orderedDataResponse);
             
-            var dataResponse = ProcessDataResponse(stocks, ticker).ToArray();
-            CalculateIndicatorsForDataResponse(dataResponse);
-            
-            return Ok(dataResponse);
+            return Ok(results);
         }
 
-        private static void CalculateIndicatorsForDataResponse(StockResponse[] dataResponse)
+        private static IEnumerable<StockResponse> CalculateIndicatorsForDataResponse(IEnumerable<StockResponse> orderedDataResponse)
         {
-            double[] stockClosePrices = dataResponse.Select(x => x.Close).ToArray();
+            var calculateIndicatorsDataResponse = orderedDataResponse.ToArray();
+            double[] stockClosePrices = calculateIndicatorsDataResponse.Select(x => x.Close).ToArray();
             
             double[] longSma = Indicators.SMA.Calculate(stockClosePrices, 200);
             double[] shortSma = Indicators.SMA.Calculate(stockClosePrices, 5);
             double[] rsi = Indicators.RSI.Calculate(stockClosePrices, 10);
             
-            for (int i = 0; i < dataResponse.Length; i++)
+            for (int i = 0; i < calculateIndicatorsDataResponse.Length; i++)
             {
-                dataResponse[i].ConnorIndicators.LongSMA = Math.Round(longSma[i], 2);
-                dataResponse[i].ConnorIndicators.ShortSMA = Math.Round(shortSma[i], 2);
-                dataResponse[i].ConnorIndicators.Rsi = Math.Round(rsi[i], 2);
+                calculateIndicatorsDataResponse[i].ConnorIndicators.LongSMA = Math.Round(longSma[i], 2);
+                calculateIndicatorsDataResponse[i].ConnorIndicators.ShortSMA = Math.Round(shortSma[i], 2);
+                calculateIndicatorsDataResponse[i].ConnorIndicators.Rsi = Math.Round(rsi[i], 2);
             }
+
+            return calculateIndicatorsDataResponse;
         }
 
-        private static IEnumerable<StockResponse> ProcessDataResponse(IEnumerable<JObject> stocks, string ticker)
+        private static IEnumerable<StockResponse> MapAndOrderDataResponse(IEnumerable<JObject> stocks, string ticker)
         {
             int number = 0;
             
