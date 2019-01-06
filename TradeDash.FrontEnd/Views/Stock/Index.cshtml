@@ -1,3 +1,5 @@
+@using TradeDash.Application.Common
+@using TradeDash.DTO
 @model List<TradeDash.FrontEnd.ViewModels.Stock.StockViewModel>
 
 @{
@@ -14,15 +16,26 @@
                             <h4 style="text-align: center">Stock Data</h4>
                             <div class="row">
                                 <div class="col-4">
-                                    <div class="input-group input-group-sm">
+                                    <div class="input-group input-group-sm mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">Ticker</span>
-                                            <input class="ticker-input" type="text" aria-label="Ticker" class="form-control">
-                                            <span class="input-group-text">History</span>
-                                            <input class="history-input" type="text" aria-label="History" class="form-control">
-                                            <button class="btn btn-success btn-sm js-find">Find</button>
                                         </div>
-                                    </div>
+                                        <input type="text" class="form-control ticker-input" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">History</span>
+                                        </div>
+                                        <input type="text" class="form-control history-input" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                        <button class="btn btn-success btn-sm js-find">Find</button>
+                                    </div>    
+                                </div>
+                                <div class="col-4">
+                                    <div class="input-group input-group-sm mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Strategy</span>
+                                        </div>
+                                        <select class="form-control" asp-items="@(new SelectList(ViewHelpers.EnumToSelectItem<StrategyType>(), "Value", "Text"))"></select>
+                                        <button class="btn btn-success btn-sm js-find">Calculate</button>
+                                    </div>    
                                 </div>
                             </div>
                             <br>
