@@ -17,6 +17,7 @@ namespace TradeDash.DTO
     {
         Default = 0,
         LongTermOptions,
-        ShortTermOptions
+        ShortTermOptions,
+        ConnorRsi
     }
 }

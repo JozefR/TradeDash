@@ -21,8 +21,8 @@ namespace TradeDash.BackEnd.Controllers
             _apiClient = apiClient;
         }
 
-        [HttpGet("{ticker}/{history}")]
-        public async Task<IActionResult> Get([FromRoute] string ticker, string history)
+        [HttpGet("{ticker}/{history}/{strategyType}")]
+        public async Task<IActionResult> Get([FromRoute] string ticker, string history, StrategyType strategyType)
         {
             var stocks = await _apiClient.GetStocksAsync(ticker, history);
 
@@ -31,8 +31,12 @@ namespace TradeDash.BackEnd.Controllers
                 return null;
             }
 
-            var orderedDataResponse = MapAndOrderDataResponse(stocks, ticker);
-            var results = CalculateIndicatorsForDataResponse(orderedDataResponse);
+            var results = MapAndOrderDataResponse(stocks, ticker);
+            
+            if (strategyType.Equals(StrategyType.ConnorRsi))
+            {
+                results = CalculateIndicatorsForDataResponse(results);
+            }
             
             return Ok(results);
         }
@@ -48,9 +52,12 @@ namespace TradeDash.BackEnd.Controllers
             
             for (int i = 0; i < calculateIndicatorsDataResponse.Length; i++)
             {
-                calculateIndicatorsDataResponse[i].ConnorIndicators.LongSMA = Math.Round(longSma[i], 2);
-                calculateIndicatorsDataResponse[i].ConnorIndicators.ShortSMA = Math.Round(shortSma[i], 2);
-                calculateIndicatorsDataResponse[i].ConnorIndicators.Rsi = Math.Round(rsi[i], 2);
+                calculateIndicatorsDataResponse[i].Strategy = new ConnorRsi();
+                ConnorRsi connorStrategy = (ConnorRsi)calculateIndicatorsDataResponse[i].Strategy;
+                
+                connorStrategy.LongSMA = Math.Round(longSma[i], 2);
+                connorStrategy.ShortSMA = Math.Round(shortSma[i], 2);
+                connorStrategy.Rsi = Math.Round(rsi[i], 2);
             }
 
             return calculateIndicatorsDataResponse;

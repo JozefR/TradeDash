@@ -46,9 +46,7 @@ namespace TradeDash.FrontEnd.Configurations.Startup
                 .ForMember(d => d.Volume, m => m.MapFrom(s => s.Volume))
                 .ForMember(d => d.ClosePrice, m => m.MapFrom(s => s.Close))
                 .ForMember(d => d.ChangePercent, m => m.MapFrom(s => s.ChangePercent))
-                .ForMember(d => d.LongSMA, m => m.MapFrom(s => s.ConnorIndicators.LongSMA))
-                .ForMember(d => d.ShortSMA, m => m.MapFrom(s => s.ConnorIndicators.ShortSMA))
-                .ForMember(d => d.RSI, m => m.MapFrom(s => s.ConnorIndicators.Rsi));
+                ;
         }
     }
 }
