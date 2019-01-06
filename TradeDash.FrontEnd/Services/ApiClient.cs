@@ -69,9 +69,9 @@ namespace TradeDash.FrontEnd.Services
         #endregion
         
         [HttpGet("{ticker}/{history}")]
-        public async Task<List<StockResponse>> GetStocksAsync(string ticker, string history)
+        public async Task<List<StockResponse>> GetStocksAsync(string ticker, string history, StrategyType strategyType)
         {
-            var response = await _httpClient.GetAsync($"/api/stocks/{ticker}/{history}");
+            var response = await _httpClient.GetAsync($"/api/stocks/{ticker}/{history}/{strategyType}");
 
             if (response.StatusCode == HttpStatusCode.InternalServerError)
             {

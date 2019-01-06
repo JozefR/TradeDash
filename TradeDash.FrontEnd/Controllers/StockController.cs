@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using TradeDash.DTO;
 using TradeDash.FrontEnd.Services;
 using TradeDash.FrontEnd.ViewModels.Stock;
 
@@ -20,16 +21,16 @@ namespace TradeDash.FrontEnd.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var stocks = await _apiClient.GetStocksAsync("Aapl", "1y");
+            var stocks = await _apiClient.GetStocksAsync("Aapl", "1y", StrategyType.Default);
 
             var stocksVm = _mapper.Map<List<StockViewModel>>(stocks);
 
             return View(stocksVm);
         }       
         
-        public async Task<IActionResult> Find(string ticker, string history)
+        public async Task<IActionResult> Find(string ticker, string history, StrategyType strategyType)
         {
-            var stocks = await _apiClient.GetStocksAsync(ticker, history);
+            var stocks = await _apiClient.GetStocksAsync(ticker, history, strategyType);
 
             var stocksVm = new List<StockViewModel>();
 
