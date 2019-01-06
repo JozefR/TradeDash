@@ -6,7 +6,7 @@ namespace TradeDash.Application.Common
 {
     public static class ViewHelpers
     {
-        public static List<SelectListItem> EnumToSelectItem<T>() where T : System.Enum
+        public static List<SelectListItem> EnumToSelectItem<T>() where T : Enum
         {
             var results = new List<SelectListItem>();
             var values = Enum.GetValues(typeof(T));

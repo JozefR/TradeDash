@@ -1,11 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.EntityFrameworkCore.Migrations;
-using TradeDash.DTO;
 using TradeDash.FrontEnd.Services;
 using TradeDash.FrontEnd.ViewModels.Stock;
 

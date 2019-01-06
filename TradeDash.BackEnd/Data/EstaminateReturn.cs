@@ -1,5 +1,3 @@
-using System.ComponentModel.DataAnnotations;
-
 namespace TradeDash.BackEnd.Data
 {
     public class EstaminateReturn
