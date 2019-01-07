@@ -30,7 +30,7 @@ namespace TradeDash.FrontEnd.Configurations.Startup
     {
         public StrategyReadingProfile()
         {
-            CreateMap<Strategy, StrategyViewModel>();
+            CreateMap<StrategyResponse, StrategyViewModel>();
         }
     }    
     

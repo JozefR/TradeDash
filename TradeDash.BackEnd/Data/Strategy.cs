@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace TradeDash.BackEnd.Data
 {
-    public class Strategy : TradeDash.DTO.Strategy
+    public class Strategy : TradeDash.DTO.StrategyBase
     {
         public MoneyManagement MoneyManagement { get; set; }
         

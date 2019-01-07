@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TradeDash.DTO
 {
-    public class Strategy
+    public class StrategyBase
     {
         public int Id { get; set; }
 

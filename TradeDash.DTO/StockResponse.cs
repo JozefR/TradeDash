@@ -4,6 +4,6 @@ namespace TradeDash.DTO
     {    
         public int Number { get; set; }
         public string Ticker { get; set; }
-        public Strategy Strategy { get; set; } = new Strategy();
+        public StrategyResponse Strategy { get; set; } = new StrategyResponse();
     }
 }

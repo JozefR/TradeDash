@@ -1,6 +1,6 @@
 namespace TradeDash.DTO
 {
-    public class StrategyResponse : Strategy
+    public class StrategyResponse : StrategyBase
     {
         
     }

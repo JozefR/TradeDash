@@ -41,14 +41,14 @@ namespace TradeDash.FrontEnd.Services
             return await response.Content.ReadAsJsonAsync<StrategyResponse>();
         }
 
-        public async Task PostStrategyAsync(Strategy strategy)
+        public async Task PostStrategyAsync(StrategyResponse strategy)
         {
             var response = await _httpClient.PostAsJsonAsync($"/api/strategies/", strategy);
             
             response.EnsureSuccessStatusCode();
         }
 
-        public async Task PutStrategyAsync(Strategy strategy)
+        public async Task PutStrategyAsync(StrategyResponse strategy)
         {
             var response = await _httpClient.PutAsJsonAsync($"/api/strategies/{strategy.Id}", strategy);
 

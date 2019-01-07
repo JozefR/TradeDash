@@ -46,7 +46,7 @@ namespace TradeDash.BackEnd.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody]TradeDash.DTO.Strategy input)
+        public async Task<IActionResult> Post([FromBody]TradeDash.DTO.StrategyBase input)
         {
             if (!ModelState.IsValid)
             {
@@ -76,7 +76,7 @@ namespace TradeDash.BackEnd.Controllers
         }
         
         [HttpPut("{id:int}")]
-        public async Task<IActionResult> Put([FromRoute]int id, [FromBody]TradeDash.DTO.Strategy input)
+        public async Task<IActionResult> Put([FromRoute]int id, [FromBody]TradeDash.DTO.StrategyBase input)
         {
             var strategy = await _db.Strategies.FindAsync(id);
 

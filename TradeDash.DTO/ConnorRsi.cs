@@ -1,6 +1,6 @@
 namespace TradeDash.DTO
 {
-    public class ConnorRsi : Strategy
+    public class ConnorRsi : StrategyResponse
     {
         public double LongSMA { get; set; }
         
