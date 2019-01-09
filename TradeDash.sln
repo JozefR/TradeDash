@@ -26,6 +26,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeDash.DataApiProviders"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeDash.Indicators", "TradeDash.Indicators\TradeDash.Indicators.csproj", "{75C17F36-9060-4F2C-A035-8540A2477E76}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeDash.Strategies", "TradeDash.Strategies\TradeDash.Strategies.csproj", "{407F7313-E137-4B97-8FB7-B80CC3CDC8AD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -147,5 +149,17 @@ Global
 		{75C17F36-9060-4F2C-A035-8540A2477E76}.Release|x64.Build.0 = Release|Any CPU
 		{75C17F36-9060-4F2C-A035-8540A2477E76}.Release|x86.ActiveCfg = Release|Any CPU
 		{75C17F36-9060-4F2C-A035-8540A2477E76}.Release|x86.Build.0 = Release|Any CPU
+		{407F7313-E137-4B97-8FB7-B80CC3CDC8AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{407F7313-E137-4B97-8FB7-B80CC3CDC8AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{407F7313-E137-4B97-8FB7-B80CC3CDC8AD}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{407F7313-E137-4B97-8FB7-B80CC3CDC8AD}.Debug|x64.Build.0 = Debug|Any CPU
+		{407F7313-E137-4B97-8FB7-B80CC3CDC8AD}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{407F7313-E137-4B97-8FB7-B80CC3CDC8AD}.Debug|x86.Build.0 = Debug|Any CPU
+		{407F7313-E137-4B97-8FB7-B80CC3CDC8AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{407F7313-E137-4B97-8FB7-B80CC3CDC8AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{407F7313-E137-4B97-8FB7-B80CC3CDC8AD}.Release|x64.ActiveCfg = Release|Any CPU
+		{407F7313-E137-4B97-8FB7-B80CC3CDC8AD}.Release|x64.Build.0 = Release|Any CPU
+		{407F7313-E137-4B97-8FB7-B80CC3CDC8AD}.Release|x86.ActiveCfg = Release|Any CPU
+		{407F7313-E137-4B97-8FB7-B80CC3CDC8AD}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\TradeDash.DTO\TradeDash.DTO.csproj" />
+      <ProjectReference Include="..\TradeDash.Indicators\TradeDash.Indicators.csproj" />
+    </ItemGroup>
+
+</Project>
