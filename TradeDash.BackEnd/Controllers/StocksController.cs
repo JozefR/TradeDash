@@ -7,6 +7,7 @@ using Newtonsoft.Json.Linq;
 using TradeDash.BackEnd.Infrastructure;
 using TradeDash.BackEnd.Services;
 using TradeDash.DTO;
+using TradeDash.Strategies;
 
 namespace TradeDash.BackEnd.Controllers
 {
@@ -15,10 +16,12 @@ namespace TradeDash.BackEnd.Controllers
     public class StocksController : Controller
     {
         private readonly IApiClient _apiClient;
+        private readonly IStrategy _strategy;
 
-        public StocksController(IApiClient apiClient)
+        public StocksController(IApiClient apiClient, IStrategy strategy)
         {
             _apiClient = apiClient;
+            _strategy = strategy;
         }
 
         [HttpGet("{ticker}/{history}/{strategyType}")]
@@ -32,10 +35,10 @@ namespace TradeDash.BackEnd.Controllers
             }
 
             var results = MapDataResponse(stocks, ticker);
-            
+
             if (strategyType.Equals(StrategyType.ConnorRsi))
             {
-                results = Strategies.ConnorRsiSwing.Calculate(results);
+                results = _strategy.ExecuteAsync(results.ToList());
             }
             
             return Ok(results);
