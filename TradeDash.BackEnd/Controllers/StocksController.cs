@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,9 +15,9 @@ namespace TradeDash.BackEnd.Controllers
     public class StocksController : Controller
     {
         private readonly IApiClient _apiClient;
-        private readonly IStrategy _strategy;
+        private readonly ISpecificStrategy _strategy;
 
-        public StocksController(IApiClient apiClient, IStrategy strategy)
+        public StocksController(IApiClient apiClient, ISpecificStrategy strategy)
         {
             _apiClient = apiClient;
             _strategy = strategy;
@@ -36,9 +35,11 @@ namespace TradeDash.BackEnd.Controllers
 
             var results = MapDataResponse(stocks, ticker);
 
-            if (strategyType.Equals(StrategyType.ConnorRsi))
+            IStrategy strategy = _strategy.GetStrategyType(StrategyType.ConnorRsi);
+
+            if (strategy != null)
             {
-                results = _strategy.ExecuteAsync(results.ToList());
+                results = strategy.Execute(results.ToList());
             }
             
             return Ok(results);

@@ -29,7 +29,7 @@ namespace TradeDash.BackEnd
             services.ConfigureDbContext(Configuration);
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddHttpClient<IApiClient, ApiClient>();
-            services.AddScoped<IStrategy, ConnorRsiSwing>();
+            services.AddScoped<ISpecificStrategy, SpecificStrategy>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
