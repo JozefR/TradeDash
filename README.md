@@ -49,9 +49,17 @@ And each close option can be **Expired,Sold,Assigned**.
  - [X] Add basic price [indicators.](https://www.investopedia.com/terms/m/market_indicators.asp)
  - [ ] Build simple stock strategy.
  
- ## Simple Connors Rsi Strategy
+ ## Strategies
  
- ### Buying Rules
+ ### Simple Cross Moving Average Strategy
+ 
+ 1. Pick stock
+ 2. Trade only once a day at close price.
+ 3. Buy one contract when price goes up and cross Long Moving average.
+ 3. Sell one contract when price goes down and cross Long Moving average.
+ 4. No Stop Loss.
+ 
+ ### Connors Rsi Strategy
  
  1. Pick some stock
  2. We are going to trade only once a day at close price.
@@ -59,8 +67,6 @@ And each close option can be **Expired,Sold,Assigned**.
  4. We are buying stock only when price is below Rsi(2).
  6. Sell only when price is above short SMA.
  7. At first we are always buying 100 ks of picked stock.
-
-
 
 #### Free Data Provider
 Data provided for free by [IEX](https://iextrading.com/developer/). View [IEX’s Terms of Use](https://iextrading.com/api-exhibit-a/).
