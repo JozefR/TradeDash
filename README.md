@@ -28,6 +28,7 @@ And each close option can be **Expired,Sold,Assigned**.
  - [X] Implement basics tables without real data based on excel option trade sheets.
  - [ ] Build simple header in the home page (just for learning purpose)
  - [ ] Find simple, easy to use and free dashboard for my home page.
+ - [ ] For stock view implement dropdown with strategies and calculate indicators based on picked strategy.
 
 #### Back End
  - [X] Create basic EF model.
@@ -55,8 +56,8 @@ And each close option can be **Expired,Sold,Assigned**.
  
  1. Pick stock
  2. Trade only once a day at close price.
- 3. Buy one contract when price goes up and cross Long Moving average.
- 3. Sell one contract when price goes down and cross Long Moving average.
+ 3. Buy one contract when price goes up and cross Long Moving average from bottom up.
+ 3. Sell one contract when price goes down and cross Long Moving average from up to bottom.
  4. No Stop Loss.
  
  ### Connors Rsi Strategy
