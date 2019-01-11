@@ -18,6 +18,7 @@ namespace TradeDash.DTO
         Default = 0,
         LongTermOptions,
         ShortTermOptions,
+        CrossMA,
         ConnorRsi
     }
 }

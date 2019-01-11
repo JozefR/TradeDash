@@ -35,7 +35,7 @@ namespace TradeDash.BackEnd.Controllers
 
             var results = MapDataResponse(stocks, ticker);
 
-            IStrategy strategy = _strategy.GetStrategyType(StrategyType.ConnorRsi);
+            IStrategy strategy = _strategy.GetStrategyType(strategyType);
 
             if (strategy != null)
             {

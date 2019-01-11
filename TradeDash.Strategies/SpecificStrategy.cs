@@ -10,10 +10,12 @@ namespace TradeDash.Strategies
         {
             switch (strategyType)
             {
-                case StrategyType.ConnorRsi:
-                    return new ConnorRsiSwing();
                 case StrategyType.Default:
                     return null;
+                case StrategyType.ConnorRsi:
+                    return new ConnorRsiSwing();
+                case StrategyType.CrossMA:
+                    return new CrossMovingAverage();
                 default:
                     throw new ApplicationException();
             }
