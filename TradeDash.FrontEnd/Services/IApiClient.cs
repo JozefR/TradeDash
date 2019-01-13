@@ -11,6 +11,7 @@ namespace TradeDash.FrontEnd.Services
         Task PutStrategyAsync(StrategyResponse strategy);
         Task PostStrategyAsync(StrategyResponse strategy);
         Task DeleteStrategyAsync(int id);
-        Task<List<StockResponse>> GetStocksAsync(string ticker, string history, StrategyType @default);
+        Task<List<StockResponse>> GetStocksAsync(string ticker, string history);
+        Task<List<Strategy>> CalculateStrategyAsync(string ticker, string history, StrategyType strategyType);
     }
 }

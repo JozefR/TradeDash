@@ -23,8 +23,8 @@ namespace TradeDash.BackEnd.Controllers
             _strategy = strategy;
         }
 
-        [HttpGet("{ticker}/{history}/{strategyType}")]
-        public async Task<IActionResult> Get([FromRoute] string ticker, string history, StrategyType strategyType)
+        [HttpGet("{ticker}/{history}")]
+        public async Task<IActionResult> Get([FromRoute] string ticker, string history)
         {
             var stocks = await _apiClient.GetStocksAsync(ticker, history);
 
@@ -34,16 +34,33 @@ namespace TradeDash.BackEnd.Controllers
             }
 
             var results = MapDataResponse(stocks, ticker, history);
+         
+            return Ok(results);
+        }
 
+        [HttpGet("Calculate/{ticker}/{history}/{strategyType}")]
+        public async Task<IActionResult> Calculate([FromRoute] string ticker, string history, StrategyType strategyType)
+        {
+            var stocks = await _apiClient.GetStocksAsync(ticker, history);
+
+            if (stocks == null)
+            {
+                return null;
+            }
+
+            var results = MapDataResponse(stocks, ticker, history);
+            
             IStrategy strategy = _strategy.GetStrategyType(strategyType);
 
             if (strategy != null)
             {
                 results = strategy.Execute(results.ToList());
             }
-            
+         
             return Ok(results);
         }
+        
+        #region Private helpers
 
         private static IEnumerable<StockResponse> MapDataResponse(IEnumerable<JObject> stocks, string ticker,string history)
         {
@@ -53,5 +70,7 @@ namespace TradeDash.BackEnd.Controllers
             
             return response;
         }
+
+        #endregion
     }
 }

@@ -69,9 +69,9 @@ namespace TradeDash.FrontEnd.Services
         #endregion
         
         [HttpGet("{ticker}/{history}")]
-        public async Task<List<StockResponse>> GetStocksAsync(string ticker, string history, StrategyType strategyType)
+        public async Task<List<StockResponse>> GetStocksAsync(string ticker, string history)
         {
-            var response = await _httpClient.GetAsync($"/api/stocks/{ticker}/{history}/{strategyType}");
+            var response = await _httpClient.GetAsync($"/api/stocks/{ticker}/{history}");
 
             if (response.StatusCode == HttpStatusCode.InternalServerError)
             {
@@ -86,6 +86,25 @@ namespace TradeDash.FrontEnd.Services
             response.EnsureSuccessStatusCode();
 
             return await response.Content.ReadAsJsonAsync<List<StockResponse>>();
+        }
+
+        public async Task<List<Strategy>> CalculateStrategyAsync(string ticker, string history, StrategyType strategyType)
+        {
+            var response = await _httpClient.GetAsync($"/api/stocks/Calculate/{ticker}/{history}/{strategyType}");
+            
+            if (response.StatusCode == HttpStatusCode.InternalServerError)
+            {
+                return null;
+            }
+
+            if (response.StatusCode == HttpStatusCode.NotFound)
+            {
+                return null;
+            }
+            
+            response.EnsureSuccessStatusCode();
+
+            return await response.Content.ReadAsJsonAsync<List<Strategy>>();
         }
     }
 }

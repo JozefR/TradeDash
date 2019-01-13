@@ -100,7 +100,7 @@
                     const history = $(".history-input").val();
                     const strategyType = $(".strategy-type").val();
                     if (confirm("Do you want to try find this stock?")) {
-                        window.location = `/stock/find/?ticker=${ticker}&history=${history}&strategyType=${strategyType}`;
+                        window.location = `/stock/calculateStrategy/?ticker=${ticker}&history=${history}&strategyType=${strategyType}`;
                     }
                 });
         });

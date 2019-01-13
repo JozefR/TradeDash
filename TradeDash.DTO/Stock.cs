@@ -6,6 +6,12 @@ namespace TradeDash.DTO
     {
         public DateTime Date { get; set; }
         
+        public int Number { get; set; }
+        
+        public string Ticker { get; set; }
+        
+        public string History { get; set; }
+        
         public double Open { get; set; }
         
         public double High { get; set; }
