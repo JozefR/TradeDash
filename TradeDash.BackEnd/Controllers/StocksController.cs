@@ -33,7 +33,7 @@ namespace TradeDash.BackEnd.Controllers
                 return null;
             }
 
-            var results = MapDataResponse(stocks, ticker);
+            var results = MapDataResponse(stocks, ticker, history);
 
             IStrategy strategy = _strategy.GetStrategyType(strategyType);
 
@@ -45,11 +45,11 @@ namespace TradeDash.BackEnd.Controllers
             return Ok(results);
         }
 
-        private static IEnumerable<StockResponse> MapDataResponse(IEnumerable<JObject> stocks, string ticker)
+        private static IEnumerable<StockResponse> MapDataResponse(IEnumerable<JObject> stocks, string ticker,string history)
         {
             int number = 0;
             
-            var response = stocks.Select(x => x.MapDataResponse(ticker, ++number));
+            var response = stocks.Select(x => x.MapDataResponse(ticker, history, ++number));
             
             return response;
         }

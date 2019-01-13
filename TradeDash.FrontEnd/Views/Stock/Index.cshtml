@@ -20,11 +20,11 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">Ticker</span>
                                         </div>
-                                        <input type="text" class="form-control ticker-input" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                        <input type="text" value="@Model.First().Ticker" class="form-control ticker-input" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">History</span>
                                         </div>
-                                        <input type="text" class="form-control history-input" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                        <input type="text" value="@Model.First().History" class="form-control history-input" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                                         <button class="btn btn-success btn-sm js-find">Find</button>
                                     </div>    
                                 </div>
@@ -66,7 +66,6 @@
                                         }
                                         </tbody>
                                     </table>
-
                                 </div>
                             </div>
                         </div>

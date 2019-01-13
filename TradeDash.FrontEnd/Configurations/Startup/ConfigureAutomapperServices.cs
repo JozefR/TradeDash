@@ -41,6 +41,7 @@ namespace TradeDash.FrontEnd.Configurations.Startup
             CreateMap<StockResponse, StockViewModel>()
                 .ForMember(d => d.Number, m => m.MapFrom(s => s.Number))
                 .ForMember(d => d.Ticker, m => m.MapFrom(s => s.Ticker))
+                .ForMember(d => d.History, m => m.MapFrom(s => s.History))
                 .ForMember(d => d.Date,
                     m => m.MapFrom(s => s.Date.ToString("MM/dd/yyyy", CultureInfo.InvariantCulture)))
                 .ForMember(d => d.Volume, m => m.MapFrom(s => s.Volume))
