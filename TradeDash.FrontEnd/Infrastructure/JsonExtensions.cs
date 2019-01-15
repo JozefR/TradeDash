@@ -6,6 +6,26 @@ namespace TradeDash.FrontEnd.Infrastructure
 {
     public static class JsonExtensions
     {
+        public static StockResponse MapDataResponse(this JObject jObject)
+        {
+            return new StockResponse()
+            {
+                Number = Int32.Parse(jObject["number"].ToString()),
+                Ticker = jObject["ticker"].ToString(),
+                History = jObject["history"].ToString(),
+                Date = DateTime.Parse(jObject["date"].ToString()),
+                Open = Double.Parse(jObject["open"].ToString()),
+                High = Double.Parse(jObject["high"].ToString()),
+                Low = Double.Parse(jObject["low"].ToString()),
+                Close = Double.Parse(jObject["close"].ToString()),
+                Volume = Int64.Parse(jObject["volume"].ToString()),
+                Change = Double.Parse(jObject["change"].ToString()),
+                ChangePercent = Double.Parse(jObject["changePercent"].ToString()),
+                Label = jObject["label"].ToString(),
+                ChangeOverTime = Double.Parse(jObject["changeOverTime"].ToString())
+            };
+        }
+
         public static StockResponse MapCrossMaDataResponse(this JObject jObject)
         {
             return new StockResponse()

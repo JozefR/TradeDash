@@ -4,6 +4,7 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Storage.Internal;
 using Newtonsoft.Json.Linq;
 using TradeDash.Application.Infrastructure;
 using TradeDash.DTO;
@@ -21,6 +22,7 @@ namespace TradeDash.FrontEnd.Services
         }
 
         #region Strategies
+
         public async Task<List<StrategyResponse>> GetStrategiesAsync()
         {
             var response = await _httpClient.GetAsync("/api/strategies");
@@ -46,7 +48,7 @@ namespace TradeDash.FrontEnd.Services
 
         public async Task PostStrategyAsync(StrategyResponse strategy)
         {
-            var response = await _httpClient.PostAsJsonAsync($"/api/strategies/", strategy);
+            var response = await _httpClient.PostAsJsonAsync("/api/strategies/", strategy);
             
             response.EnsureSuccessStatusCode();
         }
@@ -69,6 +71,7 @@ namespace TradeDash.FrontEnd.Services
             
             response.EnsureSuccessStatusCode();
         }
+
         #endregion
         
         [HttpGet("{ticker}/{history}")]
@@ -111,6 +114,8 @@ namespace TradeDash.FrontEnd.Services
 
             switch (strategyType)
             {
+                case StrategyType.Default:
+                    return jsonResponse.Select(x => x.MapDataResponse());
                 case StrategyType.CrossMA:
                     return jsonResponse.Select(x => x.MapCrossMaDataResponse());
                 case StrategyType.ConnorRsi:

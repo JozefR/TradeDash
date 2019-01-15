@@ -16,8 +16,6 @@ namespace TradeDash.DTO
     public enum StrategyType
     {
         Default = 0,
-        LongTermOptions,
-        ShortTermOptions,
         CrossMA,
         ConnorRsi
     }

@@ -33,7 +33,12 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">Strategy</span>
                                         </div>
-                                        <select class="form-control strategy-type" asp-items="@(new SelectList(ViewHelpers.EnumToSelectItem<StrategyType>(), "Value", "Text"))"></select>
+                                        <select class="form-control strategy-type"
+                                                asp-items="@(new SelectList(ViewHelpers.EnumToSelectItem<StrategyType>(),
+                                                                 "Value",
+                                                                 "Text",
+                                                                 Model.First().Strategy != null ? (int)Model.First().Strategy.StrategyType : 0))">
+                                        </select>
                                         <button class="btn btn-success btn-sm js-calculate">Calculate</button>
                                     </div>    
                                 </div>
@@ -50,6 +55,16 @@
                                             <th>Volume</th>
                                             <th>Change Percent</th>
                                             <th>Close Price</th>
+                                            @if (@Model.First().Strategy is CrossMA)
+                                            {
+                                                <th style="border-left: 2px solid;">LongSMA</th>
+                                            }
+                                            @if (Model.First().Strategy is ConnorRsi)
+                                            {
+                                                <th style="border-left: 2px solid;">LongSMA</th>
+                                                <th>ShortSMA</th>
+                                                <th>Rsi</th>
+                                            }
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -62,6 +77,24 @@
                                                 <td>@stock.Volume</td>
                                                 <td>@stock.ChangePercent</td>
                                                 <td>@stock.ClosePrice</td>
+                                                @if (stock.Strategy is CrossMA crossMa)
+                                                {
+                                                    <td style="border-left: 2px solid">
+                                                        @crossMa.LongSMA
+                                                    </td>
+                                                }
+                                                @if (stock.Strategy is ConnorRsi connorRsi)
+                                                {
+                                                    <td style="border-left: 2px solid">
+                                                        @connorRsi.LongSMA
+                                                    </td>
+                                                    <td>
+                                                        @connorRsi.ShortSMA
+                                                    </td>
+                                                    <td>
+                                                        @connorRsi.Rsi
+                                                    </td>
+                                                }
                                             </tr>
                                         }
                                         </tbody>
@@ -80,7 +113,8 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $('#stockTable').DataTable({
-                "dom": '<"top">rt<"bottom"ip><"clear">'
+                "dom": '<"top">rt<"bottom"ip><"clear">',
+                "order": [[ 0, "desc" ]]
             });
 
             $("#stocks").on("click",
@@ -99,7 +133,7 @@
                     const ticker = $(".ticker-input").val();
                     const history = $(".history-input").val();
                     const strategyType = $(".strategy-type").val();
-                    if (confirm("Do you want to try find this stock?")) {
+                    if (confirm("Do you want calculate indicators for selected strategy?")) {
                         window.location = `/stock/calculateStrategy/?ticker=${ticker}&history=${history}&strategyType=${strategyType}`;
                     }
                 });
