@@ -23,20 +23,20 @@ namespace TradeDash.FrontEnd.Controllers
         {
             var stocks = await _apiClient.GetStocksAsync("Aapl", "1y");
 
-            var stocksVm = _mapper.Map<List<StockViewModel>>(stocks);
+            var stocksVm = _mapper.Map<List<StockStrategy>>(stocks);
 
             return View(stocksVm);
         }       
-        
+
         public async Task<IActionResult> Find(string ticker, string history)
         {
             var stocks = await _apiClient.GetStocksAsync(ticker, history);
 
-            var stocksVm = new List<StockViewModel>();
+            var stocksVm = new List<StockStrategy>();
 
             if (stocks != null)
             {
-                stocksVm = _mapper.Map<List<StockViewModel>>(stocks);                
+                stocksVm = _mapper.Map<List<StockStrategy>>(stocks);
             }
 
             return View("Index", stocksVm);
@@ -46,15 +46,14 @@ namespace TradeDash.FrontEnd.Controllers
         {
             var stocks = await _apiClient.CalculateStrategyAsync(ticker, history, strategyType);
 
-            var stocksVm = new List<StockViewModel>();
+            var stocksVm = new List<StockStrategy>();
 
             if (stocks != null)
             {
-                stocksVm = _mapper.Map<List<StockViewModel>>(stocks);                
+                stocksVm = _mapper.Map<List<StockStrategy>>(stocks);
             }
 
             return View("Index", stocksVm);
         }
-
     }
 }

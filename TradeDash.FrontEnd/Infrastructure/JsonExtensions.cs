@@ -6,11 +6,11 @@ namespace TradeDash.FrontEnd.Infrastructure
 {
     public static class JsonExtensions
     {
-        public static CrossMaResponse MapCrossMaDataResponse(this JObject jObject)
+        public static StockResponse MapCrossMaDataResponse(this JObject jObject)
         {
-            return new CrossMaResponse()
+            return new StockResponse()
             {
-                CrossMa = new CrossMA
+                Strategy = new CrossMA
                 {
                     Id = Int32.Parse(jObject["strategy"]["id"].ToString()),
                     StrategyType = StrategyType.CrossMA,
@@ -33,11 +33,11 @@ namespace TradeDash.FrontEnd.Infrastructure
             };
         }
 
-        public static ConnorRsiResponse MapConnorRsiDataResponse(this JObject jObject)
+        public static StockResponse MapConnorRsiDataResponse(this JObject jObject)
         {
-            return new ConnorRsiResponse()
+            return new StockResponse()
             {
-                ConnorRsi = new ConnorRsi
+                Strategy = new ConnorRsi
                 {
                     Id = Int32.Parse(jObject["strategy"]["id"].ToString()),
                     StrategyType = StrategyType.ConnorRsi,

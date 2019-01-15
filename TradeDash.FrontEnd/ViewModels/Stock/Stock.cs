@@ -1,6 +1,6 @@
 namespace TradeDash.FrontEnd.ViewModels.Stock
 {
-    public class StockViewModel
+    public class Stock
     {
         public int Number { get; set; }
         public string Ticker { get; set; }

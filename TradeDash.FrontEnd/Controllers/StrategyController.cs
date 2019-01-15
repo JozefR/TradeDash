@@ -4,7 +4,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using TradeDash.DTO;
 using TradeDash.FrontEnd.Services;
-using TradeDash.FrontEnd.ViewModels.Strategy;
+using StrategyBase = TradeDash.FrontEnd.ViewModels.Strategy.StrategyBase;
 
 namespace TradeDash.FrontEnd.Controllers
 {
@@ -23,14 +23,14 @@ namespace TradeDash.FrontEnd.Controllers
         {
             var strategies = await _apiClient.GetStrategiesAsync();
 
-            var strategiesVm = _mapper.Map<List<StrategyViewModel>>(strategies);
+            var strategiesVm = _mapper.Map<List<StrategyBase>>(strategies);
         
             return View(strategiesVm);
         }
 
         public IActionResult New()
         {
-            var vm = new StrategyViewModel();
+            var vm = new StrategyBase();
 
             return View("StrategyForm", vm);
         }
@@ -39,17 +39,17 @@ namespace TradeDash.FrontEnd.Controllers
         {
             var strategy = await _apiClient.GetStrategyAsync(id);
 
-            var strategyVm = _mapper.Map<StrategyViewModel>(strategy);
+            var strategyVm = _mapper.Map<StrategyBase>(strategy);
             
             return View("StrategyForm", strategyVm);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Save(StrategyViewModel strategy)
+        public async Task<IActionResult> Save(StrategyBase strategy)
         {
             if (!ModelState.IsValid)
             {
-                var viewModel = new StrategyViewModel()
+                var viewModel = new StrategyBase()
                 {
                     Name = strategy.Name,
                     StrategyType = strategy.StrategyType,

@@ -3,7 +3,7 @@ using TradeDash.DTO;
 
 namespace TradeDash.FrontEnd.ViewModels.Strategy
 {
-    public class StrategyViewModel
+    public class StrategyBase
     {
         public int Id { get; set; }
         

@@ -1,10 +1,13 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
 using TradeDash.Application.Infrastructure;
 using TradeDash.DTO;
+using TradeDash.FrontEnd.Infrastructure;
 
 namespace TradeDash.FrontEnd.Services
 {
@@ -82,13 +85,13 @@ namespace TradeDash.FrontEnd.Services
             {
                 return null;
             }
-            
+
             response.EnsureSuccessStatusCode();
 
             return await response.Content.ReadAsJsonAsync<List<StockResponse>>();
         }
 
-        public async Task<List<Strategy>> CalculateStrategyAsync(string ticker, string history, StrategyType strategyType)
+        public async Task<IEnumerable<IResponse>> CalculateStrategyAsync(string ticker, string history, StrategyType strategyType)
         {
             var response = await _httpClient.GetAsync($"/api/stocks/Calculate/{ticker}/{history}/{strategyType}");
             
@@ -101,10 +104,20 @@ namespace TradeDash.FrontEnd.Services
             {
                 return null;
             }
-            
+
             response.EnsureSuccessStatusCode();
 
-            return await response.Content.ReadAsJsonAsync<List<Strategy>>();
+            List<JObject> jsonResponse = await response.Content.ReadAsJsonAsync<List<JObject>>();
+
+            switch (strategyType)
+            {
+                case StrategyType.CrossMA:
+                    return jsonResponse.Select(x => x.MapCrossMaDataResponse());
+                case StrategyType.ConnorRsi:
+                    return jsonResponse.Select(x => x.MapConnorRsiDataResponse());
+                default:
+                    return null;
+            }
         }
     }
 }
