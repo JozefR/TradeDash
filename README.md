@@ -51,6 +51,11 @@ And each close option can be **Expired,Sold,Assigned**.
  - [ ] Build simple stock strategy.
  
  ## Strategies
+
+ Classes implementation
+ 
+ ![TradeDash.StrategyFactory](https://github.com/JozefR/TradeDash/blob/master/TradeDash.StrategyFactory.png)
+ 
  
  ### Simple Cross Moving Average Strategy
  

@@ -8,7 +8,7 @@ namespace TradeDash.Strategies
     {
         /*
          Private OrderkData() This method will check and sort data by date. 
-         It provides correct data for concrete strategy implementation.  
+         It provides ordered data for concrete strategy implementation.
          */
         protected static List<StockResponse> OrderData(List<StockResponse> stockResponses)
         {
