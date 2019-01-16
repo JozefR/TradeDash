@@ -9,8 +9,8 @@ namespace TradeDash.Strategies.AvailableStrategies
     {
         public IEnumerable<StockResponse> Execute(List<StockResponse> stockData)
         {
-            List<StockResponse> result = null;
-            
+            List<StockResponse> result;
+
             result = OrderData(stockData);
             result = Calculate(result);
 
