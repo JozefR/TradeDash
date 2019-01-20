@@ -8,7 +8,7 @@ namespace TradeDash.Strategies.AvailableStrategies
     // TODO: How to handle asynchronous code. When to return which type or interface.    
     public class ConnorRsiSwing : StrategyBase, IStrategy
     {
-        public IEnumerable<StockResponse> Execute(List<StockResponse> stockData)
+        public IEnumerable<StockResponse> Execute(List<StockResponse> stockData, Strategy strategy = null)
         {
             var result = OrderData(stockData);
             result = Calculate(result);

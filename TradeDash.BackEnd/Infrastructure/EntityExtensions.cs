@@ -14,5 +14,15 @@ namespace TradeDash.BackEnd.Infrastructure
                 StrategyType = strategy.StrategyType
             };
         }
+
+        public static DTO.Strategy MapStrategyToDTO(this Strategy strategy)
+        {
+            return new DTO.Strategy
+            {
+                Id = strategy.Id,
+                Name = strategy.Name,
+                StrategyType = strategy.StrategyType
+            };
+        }
     }
 }

@@ -8,6 +8,6 @@ namespace TradeDash.Strategies
      */
     public interface IStrategy
     {
-        IEnumerable<StockResponse> Execute(List<StockResponse> stockData);
+        IEnumerable<StockResponse> Execute(List<StockResponse> stockData, Strategy strategy = null);
     }
 }
