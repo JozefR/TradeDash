@@ -28,7 +28,7 @@ And each close option can be **Expired,Sold,Assigned**.
  - [X] Implement basics tables without real data based on excel option trade sheets.
  - [ ] Build simple header in the home page (just for learning purpose)
  - [ ] Find simple, easy to use and free dashboard for my home page.
- - [ ] For stock view implement dropdown with strategies and calculate indicators based on picked strategy.
+ - [X] For stock view implement dropdown with strategies and calculate indicators based on picked strategy.
 
 #### Back End
  - [X] Create basic EF model.
@@ -37,7 +37,7 @@ And each close option can be **Expired,Sold,Assigned**.
  - [X] Scaffold simple strategy Api Controller.
  - [x] Testing the API using the Swashbuckle
  - [X] Create entities 
- - [ ] Add DTO project 
+ - [X] Add DTO project 
  - [X] Map Strategy entity to DTO and wire up with Front End.
  - [X] Implement automapper
  - [X] CRUD operations for strategy.
@@ -46,13 +46,19 @@ And each close option can be **Expired,Sold,Assigned**.
  - [X] Find free stocks data provider. 
  - [X] Build example controller to consume data from external api using background task.
  - [X] Add page to show data for given stocks.
- - [ ] Find free library for showing data in charts.
  - [X] Add basic price [indicators.](https://www.investopedia.com/terms/m/market_indicators.asp)
- - [ ] Build simple stock strategy.
- 
+ - [X] Build simple stock strategy.
+ - [ ] Save strategy data in database.
+
+#### Back Test Component
+
+This component will automatically trade strategy based on specific rules. 
+
+ - [ ] Create back test component.
+               
  ## Strategies
 
- Classes implementation
+ Implementation of strategies component.
  
  ![TradeDash.StrategyFactory](https://github.com/JozefR/TradeDash/blob/master/TradeDash.StrategyFactory.png)
  
@@ -76,3 +82,4 @@ And each close option can be **Expired,Sold,Assigned**.
 
 #### Free Data Provider
 Data provided for free by [IEX](https://iextrading.com/developer/). View [IEX’s Terms of Use](https://iextrading.com/api-exhibit-a/).
+                                                                                            
