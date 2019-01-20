@@ -98,6 +98,8 @@ namespace TradeDash.BackEnd.Controllers
                 results = specificStrategy.Execute(results.ToList(), strategyDto);
             }
 
+
+
             return Ok();
         }
         

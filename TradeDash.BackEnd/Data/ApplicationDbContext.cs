@@ -16,6 +16,7 @@ namespace TradeDash.BackEnd.Data
         public DbSet<ReturnOnStrategy> ReturnOnStrategies { get; set; }
         public DbSet<StockTrade> StockTrades { get; set; }
         public DbSet<OptionTrade> OptionTrades { get; set; }
+        public DbSet<Stock> Stocks { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
