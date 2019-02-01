@@ -52,9 +52,13 @@ And each close option can be **Expired,Sold,Assigned**.
 
 #### Back Test Component
 
-This component will automatically trade strategy based on specific rules. 
+This component will automatically trade strategies based on specific rules. 
 
  - [ ] Create back test component.
+ 
+ #### [Interactive Brokers](https://www.interactivebrokers.com)  Gateway
+ 
+ - [ ] Build IB Gateway.
                
  ## Strategies
 
