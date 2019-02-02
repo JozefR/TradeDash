@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json.Linq;
 using TradeDash.BackEnd.Data;
 using TradeDash.BackEnd.Infrastructure;
@@ -71,10 +72,10 @@ namespace TradeDash.BackEnd.Controllers
             return Ok(results);
         }
 
-        [HttpPost("Save/{ticker}/{history}/{strategyId}")]
-        public async Task<IActionResult> CalculatePost([FromRoute]string ticker, string history, int strategyId)
+        [HttpPost("Save/{ticker}/{history}/{name}")]
+        public async Task<IActionResult> CalculatePost([FromRoute]string ticker, string history, string name)
         {
-            var strategy = await _db.Strategies.FindAsync(strategyId);
+            var strategy = await _db.Strategies.SingleOrDefaultAsync(x => x.Name == name);
 
             if (strategy == null)
             {
@@ -103,10 +104,18 @@ namespace TradeDash.BackEnd.Controllers
                 results = specificStrategy.Execute(results.ToList(), strategyDto);
             }
 
-            // map strategy dto response to model
-            // configure mapper for backend
+            List<Stock> model = _mapper.Map<List<Stock>>(results);
 
-            var model = _mapper.Map<List<Stock>>(results);
+            // TODO: refactor, create controller for specific strategies
+            var createStrategy = new CrossMaStrategy
+            {
+                Name = strategy.Name,
+                StrategyType = strategy.StrategyType,
+                Stocks = model,
+            };
+
+            _db.CrossMaStrategies.Add(createStrategy);
+            await _db.SaveChangesAsync();
 
             return Ok();
         }
@@ -116,9 +125,9 @@ namespace TradeDash.BackEnd.Controllers
         private static IEnumerable<StockResponse> MapDataResponse(IEnumerable<JObject> stocks, string ticker,string history)
         {
             int number = 0;
-            
+
             var response = stocks.Select(x => x.MapDataResponse(ticker, history, ++number));
-            
+
             return response;
         }
 
