@@ -17,6 +17,7 @@ namespace TradeDash.BackEnd.Data
         public DbSet<StockTrade> StockTrades { get; set; }
         public DbSet<OptionTrade> OptionTrades { get; set; }
         public DbSet<Stock> Stocks { get; set; }
+        public DbSet<CrossMaStrategy> CrossMaStrategies { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
