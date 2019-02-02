@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
 using TradeDash.BackEnd.Data;
@@ -8,6 +9,7 @@ using TradeDash.BackEnd.Infrastructure;
 using TradeDash.BackEnd.Services;
 using TradeDash.DTO;
 using TradeDash.Strategies;
+using Stock = TradeDash.BackEnd.Data.Stock;
 
 namespace TradeDash.BackEnd.Controllers
 {
@@ -18,15 +20,18 @@ namespace TradeDash.BackEnd.Controllers
         private readonly IApiClient _apiClient;
         private readonly ISpecificStrategy _strategy;
         private readonly ApplicationDbContext _db;
+        private readonly IMapper _mapper;
 
         public StocksController(
             IApiClient apiClient,
             ISpecificStrategy strategy,
-            ApplicationDbContext db)
+            ApplicationDbContext db,
+            IMapper mapper)
         {
             _apiClient = apiClient;
             _strategy = strategy;
             _db = db;
+            _mapper = mapper;
         }
 
         [HttpGet("{ticker}/{history}")]
@@ -98,7 +103,10 @@ namespace TradeDash.BackEnd.Controllers
                 results = specificStrategy.Execute(results.ToList(), strategyDto);
             }
 
+            // map strategy dto response to model
+            // configure mapper for backend
 
+            var model = _mapper.Map<List<Stock>>(results);
 
             return Ok();
         }

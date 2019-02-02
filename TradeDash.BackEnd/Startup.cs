@@ -24,6 +24,7 @@ namespace TradeDash.BackEnd
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddBackgroundTasks();
+            services.ConfigureAutomapper();
             services.AddSingleton<RandomStringProvider>();
             services.ConfigureSwagger();
             services.ConfigureDbContext(Configuration);
