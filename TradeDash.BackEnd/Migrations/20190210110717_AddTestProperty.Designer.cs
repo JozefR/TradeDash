@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TradeDash.BackEnd.Data;
 
 namespace TradeDash.BackEnd.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190210110717_AddTestProperty")]
+    partial class AddTestProperty
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -262,6 +264,8 @@ namespace TradeDash.BackEnd.Migrations
             modelBuilder.Entity("TradeDash.BackEnd.Data.CrossMaStrategy", b =>
                 {
                     b.HasBaseType("TradeDash.BackEnd.Data.Strategy");
+
+                    b.Property<string>("Test");
 
                     b.HasDiscriminator().HasValue("CrossMaStrategy");
                 });

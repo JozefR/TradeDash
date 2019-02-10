@@ -107,14 +107,14 @@ namespace TradeDash.BackEnd.Controllers
             List<Stock> model = _mapper.Map<List<Stock>>(results);
 
             // TODO: refactor, create controller for specific strategies
+
             var createStrategy = new CrossMaStrategy
             {
-                Name = strategy.Name,
+                Name = strategy.Name + strategy.StrategyType,
                 StrategyType = strategy.StrategyType,
-                Stocks = model,
             };
 
-            _db.CrossMaStrategies.Add(createStrategy);
+            _db.Strategies.Update(createStrategy);
             await _db.SaveChangesAsync();
 
             return Ok();

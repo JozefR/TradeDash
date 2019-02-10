@@ -4,6 +4,6 @@ namespace TradeDash.BackEnd.Data
 {
     public class CrossMaStrategy : Strategy
     {
-        public ICollection<Stock> Stocks { get; set; }
+        public ICollection<CrossMaStock> Stocks { get; set; }
     }
 }
