@@ -9,4 +9,8 @@
       <ProjectReference Include="..\TradeDash.Indicators\TradeDash.Indicators.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Models" />
+    </ItemGroup>
+
 </Project>

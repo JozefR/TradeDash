@@ -10,6 +10,7 @@ using TradeDash.BackEnd.Infrastructure;
 using TradeDash.BackEnd.Services;
 using TradeDash.DTO;
 using TradeDash.Strategies;
+using TradeDash.Strategies.Interfaces;
 using Stock = TradeDash.BackEnd.Data.Stock;
 
 namespace TradeDash.BackEnd.Controllers
@@ -19,20 +20,20 @@ namespace TradeDash.BackEnd.Controllers
     public class StocksController : Controller
     {
         private readonly IApiClient _apiClient;
-        private readonly ISpecificStrategy _strategy;
         private readonly ApplicationDbContext _db;
         private readonly IMapper _mapper;
+        private readonly IStrategyEngine _strategyEngine;
 
         public StocksController(
             IApiClient apiClient,
-            ISpecificStrategy strategy,
             ApplicationDbContext db,
-            IMapper mapper)
+            IMapper mapper,
+            IStrategyEngine strategyEngine)
         {
             _apiClient = apiClient;
-            _strategy = strategy;
             _db = db;
             _mapper = mapper;
+            _strategyEngine = strategyEngine;
         }
 
         [HttpGet("{ticker}/{history}")]
@@ -60,15 +61,10 @@ namespace TradeDash.BackEnd.Controllers
                 return null;
 
             }
-            var results = MapDataResponse(stocks, ticker, history);
-            
-            IStrategy strategy = _strategy.GetStrategyType(strategyType);
+            var response = MapDataResponse(stocks, ticker, history).ToList();
 
-            if (strategy != null)
-            {
-                results = strategy.Execute(results.ToList());
-            }
-         
+            var results = _strategyEngine.Execute(response, strategyType);
+
             return Ok(results);
         }
 
@@ -97,12 +93,14 @@ namespace TradeDash.BackEnd.Controllers
             var results = MapDataResponse(stocks, ticker, history);
             var strategyDto = strategy.MapStrategyToDTO();
 
-            IStrategy specificStrategy = _strategy.GetStrategyType(strategy.StrategyType);
+            var test = _strategyEngine.Execute(results.ToList(), StrategyType.ConnorRsi);
+
+/*            IStrategy specificStrategy = _strategyFactory.Create(strategy.StrategyType);
 
             if (specificStrategy != null)
             {
                 results = specificStrategy.Execute(results.ToList(), strategyDto);
-            }
+            }*/
 
             List<Stock> model = _mapper.Map<List<Stock>>(results);
 

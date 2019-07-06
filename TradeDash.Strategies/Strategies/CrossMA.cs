@@ -2,39 +2,27 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using TradeDash.DTO;
+using TradeDash.Strategies.Interfaces;
 
-namespace TradeDash.Strategies.AvailableStrategies
+namespace TradeDash.Strategies.Strategies
 {
-    public class CrossMovingAverage : StrategyBase, IStrategy
+    public class CrossMovingAverage : StrategyBase
     {
-        public IEnumerable<StockResponse> Execute(List<StockResponse> stockData, Strategy strategy = null)
-        {
-            List<StockResponse> result;
-
-            result = OrderData(stockData);
-            result = Calculate(result, strategy);
-
-            return result;
-        }
-
-        private static List<StockResponse> Calculate(List<StockResponse> orderedData, Strategy strategy)
+        public override List<StockResponse> Calculate(List<StockResponse> orderedData)
         {
             var calculateIndicatorsDataResponse = orderedData.ToArray();
             double[] stockClosePrices = calculateIndicatorsDataResponse.Select(x => x.Close).ToArray();
 
             double[] longSma = Indicators.SMA.Calculate(stockClosePrices, 50);
-           
+
             for (int i = 0; i < calculateIndicatorsDataResponse.Length; i++)
             {
                 calculateIndicatorsDataResponse[i].Strategy = new CrossMA();
                 CrossMA crossMa = (CrossMA) calculateIndicatorsDataResponse[i].Strategy;
                 crossMa.LongSMA = Math.Round(longSma[i], 2);
 
-                if (strategy == null) continue;
-
-                crossMa.Id = strategy.Id;
-                crossMa.Name = strategy.Name;
-                crossMa.StrategyType = strategy.StrategyType;
+                crossMa.Name = "CrossMA";
+                crossMa.StrategyType = StrategyType.CrossMA;
             }
 
             return calculateIndicatorsDataResponse.ToList();

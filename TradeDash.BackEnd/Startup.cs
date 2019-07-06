@@ -8,6 +8,8 @@ using TradeDash.BackEnd.Services;
 using TradeDash.BackgroundTasks;
 using TradeDash.DataApiProviders;
 using TradeDash.Strategies;
+using TradeDash.Strategies.Interfaces;
+using TradeDash.Strategies.Strategies;
 
 namespace TradeDash.BackEnd
 {
@@ -30,7 +32,8 @@ namespace TradeDash.BackEnd
             services.ConfigureDbContext(Configuration);
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddHttpClient<IApiClient, ApiClient>();
-            services.AddScoped<ISpecificStrategy, SpecificStrategy>();
+            services.AddScoped<IStrategyEngine, StrategyEngine>();
+            services.AddScoped<IStrategyFactory, StrategyFactory>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

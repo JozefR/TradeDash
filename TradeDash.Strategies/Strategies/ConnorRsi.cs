@@ -2,21 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using TradeDash.DTO;
+using TradeDash.Strategies.Interfaces;
 
-namespace TradeDash.Strategies.AvailableStrategies
+namespace TradeDash.Strategies.Strategies
 {
-    // TODO: How to handle asynchronous code. When to return which type or interface.    
-    public class ConnorRsiSwing : StrategyBase, IStrategy
+    // TODO: How to handle asynchronous code. When to return which type or interface.
+    public class ConnorRsi : StrategyBase
     {
-        public IEnumerable<StockResponse> Execute(List<StockResponse> stockData, Strategy strategy = null)
-        {
-            var result = OrderData(stockData);
-            result = Calculate(result);
-
-            return result;
-        }
-
-        private static List<StockResponse> Calculate(List<StockResponse> orderedData)
+        public override List<StockResponse> Calculate(List<StockResponse> orderedData)
         {
             var calculateIndicatorsDataResponse = orderedData.ToArray();
             double[] stockClosePrices = calculateIndicatorsDataResponse.Select(x => x.Close).ToArray();
@@ -27,8 +20,8 @@ namespace TradeDash.Strategies.AvailableStrategies
 
             for (int i = 0; i < calculateIndicatorsDataResponse.Length; i++)
             {
-                calculateIndicatorsDataResponse[i].Strategy = new ConnorRsi();
-                ConnorRsi connorStrategy = (ConnorRsi) calculateIndicatorsDataResponse[i].Strategy;
+                calculateIndicatorsDataResponse[i].Strategy = new DTO.ConnorRsi();
+                DTO.ConnorRsi connorStrategy = (DTO.ConnorRsi) calculateIndicatorsDataResponse[i].Strategy;
 
                 connorStrategy.LongSMA = Math.Round(longSma[i], 2);
                 connorStrategy.ShortSMA = Math.Round(shortSma[i], 2);

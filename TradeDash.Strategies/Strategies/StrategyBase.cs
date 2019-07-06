@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TradeDash.DTO;
 
-namespace TradeDash.Strategies
+namespace TradeDash.Strategies.Strategies
 {
     public abstract class StrategyBase
     {
@@ -10,6 +10,7 @@ namespace TradeDash.Strategies
          Private OrderkData() This method will check and sort data by date. 
          It provides ordered data for concrete strategy implementation.
          */
+        // TODO: how to assure to send ordered data into strategy calculator.
         protected static List<StockResponse> OrderData(List<StockResponse> stockResponses)
         {
             // If data == null return null
@@ -26,5 +27,7 @@ namespace TradeDash.Strategies
             // return sorted data.
             return orderedData;
         }
+
+        public abstract List<StockResponse> Calculate(List<StockResponse> orderedData);
     }
 }
