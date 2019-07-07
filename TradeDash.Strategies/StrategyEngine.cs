@@ -1,8 +1,7 @@
 using System.Collections.Generic;
-using System.Linq;
 using TradeDash.DTO;
 using TradeDash.Strategies.Interfaces;
-using TradeDash.Strategies.Strategies;
+using StrategyBase = TradeDash.Strategies.Strategies.StrategyBase;
 
 namespace TradeDash.Strategies
 {
@@ -15,11 +14,11 @@ namespace TradeDash.Strategies
             _strategyFactory = strategyFactory;
         }
 
-        public IEnumerable<StockResponse> Execute(IEnumerable<StockResponse> stockResponses, StrategyType strategyType)
+        public IEnumerable<StockResponse> Execute(List<StockResponse> stockResponses, StrategyType strategyType)
         {
-            var strategy = _strategyFactory.Create(strategyType);
+            StrategyBase strategy = _strategyFactory.Create(strategyType);
 
-            var results = strategy.Calculate(stockResponses.ToList());
+            var results = strategy.Calculate(stockResponses);
 
             return results;
         }

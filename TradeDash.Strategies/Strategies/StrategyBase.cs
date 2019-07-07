@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TradeDash.DTO;
@@ -6,28 +7,23 @@ namespace TradeDash.Strategies.Strategies
 {
     public abstract class StrategyBase
     {
+        public abstract List<StockResponse> Calculate(List<StockResponse> stocks);
+
         /*
-         Private OrderkData() This method will check and sort data by date. 
+         This method will check and sort data by date.
          It provides ordered data for concrete strategy implementation.
          */
-        // TODO: how to assure to send ordered data into strategy calculator.
-        protected static List<StockResponse> OrderData(List<StockResponse> stockResponses)
+        protected static IEnumerable<StockResponse> ValidateData(List<StockResponse> stockResponses)
         {
-            // If data == null return null
-            // If data length < then 200 return null.
+            // number of closes prices can't be lesser then 200 becouse of SMA200.
             if (stockResponses is null || stockResponses.Count() < 200)
             {
-                return null;
+                throw new Exception("Stock prices are lesser then 200 or null.");
             }
 
-            // Create orderedData variable.
-            // Sort data by date from oldest to newest.
-            List<StockResponse> orderedData = stockResponses.OrderBy(x => x.Date).ToList();
-
-            // return sorted data.
-            return orderedData;
+            // Data must be ordered for every strategy calculation!
+            // Unordered data, results bad indicator calculations!
+            return stockResponses.OrderBy(x => x.Date);
         }
-
-        public abstract List<StockResponse> Calculate(List<StockResponse> orderedData);
     }
 }

@@ -71,6 +71,7 @@ namespace TradeDash.BackEnd.Controllers
         [HttpPost("Save/{ticker}/{history}/{name}")]
         public async Task<IActionResult> CalculatePost([FromRoute]string ticker, string history, string name)
         {
+            // TODO: rewrite this controller
             var strategy = await _db.Strategies.SingleOrDefaultAsync(x => x.Name == name);
 
             if (strategy == null)
@@ -91,21 +92,12 @@ namespace TradeDash.BackEnd.Controllers
             }
 
             var results = MapDataResponse(stocks, ticker, history);
-            var strategyDto = strategy.MapStrategyToDTO();
 
             var test = _strategyEngine.Execute(results.ToList(), StrategyType.ConnorRsi);
-
-/*            IStrategy specificStrategy = _strategyFactory.Create(strategy.StrategyType);
-
-            if (specificStrategy != null)
-            {
-                results = specificStrategy.Execute(results.ToList(), strategyDto);
-            }*/
 
             List<Stock> model = _mapper.Map<List<Stock>>(results);
 
             // TODO: refactor, create controller for specific strategies
-
             var createStrategy = new CrossMaStrategy
             {
                 Name = strategy.Name + strategy.StrategyType,

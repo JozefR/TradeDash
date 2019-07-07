@@ -8,9 +8,9 @@ namespace TradeDash.Strategies.Strategies
 {
     public class CrossMovingAverage : StrategyBase
     {
-        public override List<StockResponse> Calculate(List<StockResponse> orderedData)
+        public override List<StockResponse> Calculate(List<StockResponse> stocks)
         {
-            var calculateIndicatorsDataResponse = orderedData.ToArray();
+            var calculateIndicatorsDataResponse = stocks.ToArray();
             double[] stockClosePrices = calculateIndicatorsDataResponse.Select(x => x.Close).ToArray();
 
             double[] longSma = Indicators.SMA.Calculate(stockClosePrices, 50);

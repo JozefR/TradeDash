@@ -5,6 +5,6 @@ namespace TradeDash.Strategies.Interfaces
 {
     public interface IStrategyEngine
     {
-        IEnumerable<StockResponse> Execute(IEnumerable<StockResponse> stockResponses, StrategyType strategyType);
+        IEnumerable<StockResponse> Execute(List<StockResponse> stockResponses, StrategyType strategyType);
     }
 }
