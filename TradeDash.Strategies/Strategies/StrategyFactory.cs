@@ -8,17 +8,16 @@ namespace TradeDash.Strategies.Strategies
     {
         public StrategyBase Create(StrategyType strategyType)
         {
-            // TODO: implement null object pattern, make sth with default which should not return null.
             switch (strategyType)
             {
                 case StrategyType.Default:
-                    return null;
+                    return new UnknownStrategy();
                 case StrategyType.ConnorRsi:
                     return new ConnorRsi();
                 case StrategyType.CrossMA:
                     return new CrossMovingAverage();
                 default:
-                    throw new ApplicationException();
+                    return new UnknownStrategy();
             }
         }
     }
