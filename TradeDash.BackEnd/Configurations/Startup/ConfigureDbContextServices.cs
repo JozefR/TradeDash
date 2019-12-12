@@ -18,7 +18,7 @@ namespace TradeDash.BackEnd.Configurations.Startup
                 }
                 else
                 {
-                    options.UseSqlite("Data Source=tradeDash.db");
+                    options.UseSqlServer("Server=localhost,1433; Database=TradeDashDb2;User=SA; Password=Pwd12345!");
                 }
             });
 

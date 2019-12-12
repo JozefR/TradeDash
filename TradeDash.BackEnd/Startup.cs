@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using TradeDash.BackEnd.Configurations.Startup;
 using TradeDash.BackEnd.Services;
 using TradeDash.BackgroundTasks;
@@ -30,14 +31,14 @@ namespace TradeDash.BackEnd
             services.AddSingleton<RandomStringProvider>();
             services.ConfigureSwagger();
             services.ConfigureDbContext(Configuration);
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             services.AddHttpClient<IApiClient, ApiClient>();
             services.AddScoped<IStrategyEngine, StrategyEngine>();
             services.AddScoped<IStrategyFactory, StrategyFactory>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.ConfigureSwagger();
             if (env.IsDevelopment())
@@ -49,7 +50,11 @@ namespace TradeDash.BackEnd
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
-            app.UseMvc();
+            app.UseRouting();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
         }
     }
 }

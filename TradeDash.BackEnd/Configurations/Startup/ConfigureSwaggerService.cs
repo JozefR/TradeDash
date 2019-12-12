@@ -1,5 +1,7 @@
+using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace TradeDash.BackEnd.Configurations.Startup
@@ -10,18 +12,7 @@ namespace TradeDash.BackEnd.Configurations.Startup
         {
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1",
-                    new Info
-                    {
-                        Title = "TradeDash API", Version = "v1",
-                        Contact = new Contact {Name = "Jozef Randjak", Email = "randjakjozef@gmail.com"}
-                    });
-                c.SwaggerDoc("v2",
-                    new Info
-                    {
-                        Title = "TradeDash API", Version = "v2",
-                        Contact = new Contact {Name = "Jozef Randjak", Email = "randjakjozef@gmail.com"}
-                    });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
             });
 
             return services;
@@ -33,8 +24,7 @@ namespace TradeDash.BackEnd.Configurations.Startup
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "TradeDash API v1");
-                c.SwaggerEndpoint("/swagger/v2/swagger.json", "TradeDash API v2");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
 
             return app;
