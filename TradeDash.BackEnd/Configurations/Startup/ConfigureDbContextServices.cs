@@ -18,7 +18,7 @@ namespace TradeDash.BackEnd.Configurations.Startup
                 }
                 else
                 {
-                    options.UseSqlServer("Server=localhost,1433; Database=TradeDashDb2;User=SA; Password=Pwd12345!");
+                    options.UseSqlServer("Server=localhost,11433; Database=TradeDashDb2;User=SA; Password=Pwd12345!");
                 }
             });
 
